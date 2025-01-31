@@ -29,7 +29,7 @@ This repository is for the "hub" course (currently assigned the temporary number
 
 * **Collaboration policy:** Talk to anyone you want to and read anything you want to, with two caveats: First, make a solid effort to solve a problem on your own before discussing it with classmates or googling. Second, no matter whom you talk to or what you read, write up the solution on your own, without having their answer in front of you. (You can use [psetpartners.mit.edu](https://psetpartners.mit.edu/) to find problem-set partners.)
 
-**Teaching Assistants**: [Mo Chen](https://math.mit.edu/directory/profile.html?pid=2176) and TBD.
+**Teaching Assistants**: [Mo Chen](https://math.mit.edu/directory/profile.html?pid=2176) and [Shania Mitra](https://cse.mit.edu/people/shania-mitra/).
 
 **Office Hours**: TBD.
 
