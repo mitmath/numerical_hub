@@ -65,3 +65,4 @@ Went through some simple definitions and examples in Julia (see notebook above),
 ## Lecture 3 (Feb 7)
 
 * Interpolation
+* pset 1: to be posted
