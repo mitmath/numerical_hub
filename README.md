@@ -24,9 +24,9 @@ This repository is for the "hub" course (currently assigned the temporary number
 
 **Homework and grading**: 6 weekly psets, posted Fridays and due Friday *midnight*; psets are accepted up to 24 hours late with a 20% penalty; for any other accommodations, speak with [S3](https://studentlife.mit.edu/s3) and have them contact the instructors.  No exams.
 
-    * Homework assignments will require some programming — you can use either **Julia or Python** (your choice; instruction and examples will use a mix of languages).
+* Homework assignments will require some programming — you can use either **Julia or Python** (your choice; instruction and examples will use a mix of languages).
 
-    * Submit your homework *electronically* via Gradescope on Canvas (link TBD) as a *PDF* containing code and results (e.g. from a Jupyter notebook) and a scan of any handwritten solutions.
+* Submit your homework *electronically* via Gradescope on Canvas (link TBD) as a *PDF* containing code and results (e.g. from a Jupyter notebook) and a scan of any handwritten solutions.
 
 * **Collaboration policy:** Talk to anyone you want to and read anything you want to, with two caveats: First, make a solid effort to solve a problem on your own before discussing it with classmates or googling. Second, no matter whom you talk to or what you read, write up the solution on your own, without having their answer in front of you (this includes ChatGPT and similar). (You can use [psetpartners.mit.edu](https://psetpartners.mit.edu/) to find problem-set partners.)
 
