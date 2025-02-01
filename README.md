@@ -20,7 +20,7 @@ This repository is for the "hub" course (currently assigned the temporary number
 
 **Instructors**: [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj) and [Prof. Qiqi Wang](https://aeroastro.mit.edu/people/qiqi-wang/).
 
-**Lectures**: MWF10 in 2-143 (Feb 3 – Mar 31), slides and notes posted below.
+**Lectures**: MWF10 in 2-142 (Feb 3 – Mar 31), slides and notes posted below.
 
 **Homework and grading**: 6 weekly psets, posted Fridays and due Friday *midnight*; psets are accepted up to 24 hours late with a 20% penalty; for any other accommodations, speak with [S3](https://studentlife.mit.edu/s3) and have them contact the instructors.  No exams.
 
