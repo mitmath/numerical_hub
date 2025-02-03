@@ -45,7 +45,7 @@ useful study guide.
 
 ## Lecture 1 (Feb 3)
 
-* Overview and syllabus
+* Overview and syllabus: [slides](https://docs.google.com/presentation/d/1zhe_c1rgfLuDNH3h3VIPu5W3Ic821wighMAjepF_F2g/edit?usp=sharing) and this web page
 * Finite-difference approximations: notes and demos (to be linked).
 
 Brief overview of the huge field of numerical methods, and outline of the small portion that this course will cover. Key new concerns in numerical analysis, are (i) performance (traditionally, arithmetic counts, but now memory access often dominates) and (ii) accuracy (both floating-point roundoff errors and also convergence of intrinsic approximations in the algorithms).  In contrast, the more pure, abstract mathematics of continuity is called "analysis", and is mainly concerned with (ii) but not (i): they are happy to prove that limits converge, but don't care too much how *quickly* they converge.  Whereas traditional discrete computer science is concerned with mainly with (i) but not (ii): they care about performance and resource usage, but traditional algorithms like sorting are either right or wrong, never approximate.
