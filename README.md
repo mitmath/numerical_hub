@@ -78,3 +78,5 @@ A basic overview of the Julia programming environment for numerical computations
 * [Tutorial materials](https://github.com/mitmath/julia-mit) (and links to other resources)
 
 If possible, try to install Julia on your laptop beforehand using the instructions at the above link.  Failing that, you can run Julia in the cloud (see instructions above).
+
+This won't be recorded, but you can find a [video of a similar tutorial by Prof. Johnson last year (MIT only)](https://mit.zoom.us/rec/share/oirQFHELtxJkopybssFzml7YrudRyvIlmXjmgq4YemqmjT0P7wMGCd9ilC7SMZ_o.iBZ-UO6_ww9WjwF0?startTime=1705960822000), as well as many other tutorial videos at [julialang.org/learning](https://julialang.org/learning/).
