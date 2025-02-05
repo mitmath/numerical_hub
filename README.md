@@ -70,3 +70,11 @@ Went through some simple definitions and examples in Julia (see notebook above),
 
 * Interpolation
 * pset 1: to be posted
+
+## Optional Julia Tutorial (Feb 7 @ 4pm in 2-190)
+
+A basic overview of the Julia programming environment for numerical computations.   This tutorial will cover what Julia is and the basics of interaction, scalar/vector/matrix arithmetic, and plotting — just as a "fancy calculator" for now (without the "real programming" features).
+
+* [Tutorial materials](https://github.com/mitmath/julia-mit) (and links to other resources)
+
+If possible, try to install Julia on your laptop beforehand using the instructions at the above link.  Failing that, you can run Julia in the cloud (see instructions above).
