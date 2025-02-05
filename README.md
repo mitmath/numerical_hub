@@ -32,7 +32,7 @@ This repository is for the "hub" course (currently assigned the temporary number
 
 **Teaching Assistants**: [Mo Chen](https://math.mit.edu/directory/profile.html?pid=2176) and [Shania Mitra (shania at mit.edu)](https://cse.mit.edu/people/shania-mitra/)
 
-**Office Hours**: TBD.
+**Office Hours**: Wednesday 4pm in 2-345 (Prof. Johnson) and Thursday 5pm via [Zoom](https://www.google.com/url?q=https://mit.zoom.us/j/94237760810&sa=D&source=calendar&usd=2&usg=AOvVaw2SiQ_dpy2RlVXTKeGITt2j) (Prof. Wang).
 
 **Resources**: [Piazza discussion forum](https://piazza.com/mit/spring2025/16s09018s190/home), [math learning center](https://math.mit.edu/learningcenter/), [TSR^2 study/resource room](https://ome.mit.edu/programs/talented-scholars-resource-room-tsr2), [pset partners](https://psetpartners.mit.edu/).
 
