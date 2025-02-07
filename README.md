@@ -68,7 +68,7 @@ Went through some simple definitions and examples in Julia (see notebook above),
 
 ## Lecture 3 (Feb 7)
 
-* Interpolation
+* Interpolation [OneNote Notebook](https://mitprod-my.sharepoint.com/:o:/g/personal/qiqi_mit_edu/EtIbMiRpjBpFsMzCtCrtV0MBy0J_u2YB9ltGUK90gXHhuQ?e=rbuKgM) [Code](https://colab.research.google.com/drive/1khUewCdh5Io97dry6O5pZNaP7_4w8QFC?usp=sharing)
 * pset 1: to be posted
 
 ## Optional Julia Tutorial (Feb 7 @ 4pm in 2-190)
