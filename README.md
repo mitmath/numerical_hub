@@ -71,6 +71,10 @@ Went through some simple definitions and examples in Julia (see notebook above),
 * Interpolation [OneNote Notebook](https://mitprod-my.sharepoint.com/:o:/g/personal/qiqi_mit_edu/EtIbMiRpjBpFsMzCtCrtV0MBy0J_u2YB9ltGUK90gXHhuQ?e=rbuKgM) [Code](https://colab.research.google.com/drive/1khUewCdh5Io97dry6O5pZNaP7_4w8QFC?usp=sharing)
 * pset 1: to be posted
 
+Discussed the important problem of **interpolating** a function $f(x)$ from a set of discrete data points, which shows up in a vast number of real problems and connects to many other areas of numerical methods (e.g. differentiation and integration).  To begin with, considered the simplest algorithm of [piecewise linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) in one dimension, with points $x$ at spacing $\Delta x$, and showed that (for a twice-differentiable function) the error (the difference between the interpolant and the true function) converges as $O(\Delta x^2)$ (second-order convergence).
+
+**Further reading:** [FNC chapter 5](https://fncbook.com/overview-4) and FENC chapter 1.  Piecewise linear interpolation is implemented in Python by [`numpy.interp`](https://numpy.org/doc/stable/reference/generated/numpy.interp.html#numpy.interp), and several other interpolation schemes by [`scipy.interpolate`](https://docs.scipy.org/doc/scipy-1.15.1/tutorial/interpolate.html).  Interpolation packages in Julia include [Interpolations.jl](https://github.com/JuliaMath/Interpolations.jl), [Dierckx.jl (splines)](https://github.com/JuliaMath/Dierckx.jl),  [BasicInterpolators.jl](https://github.com/markmbaum/BasicInterpolators.jl), and [FastChebInterp.jl (high-order polynomials)](https://github.com/JuliaMath/FastChebInterp.jl).
+
 ## Optional Julia Tutorial (Feb 7 @ 4pm in 2-190)
 
 A basic overview of the Julia programming environment for numerical computations.   This tutorial will cover what Julia is and the basics of interaction, scalar/vector/matrix arithmetic, and plotting — just as a "fancy calculator" for now (without the "real programming" features).
