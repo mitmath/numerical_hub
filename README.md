@@ -101,6 +101,8 @@ If you address both of these problems, high-degree polynomial approximation can 
 
 ## Lecture 5 (Feb 12)
 
+* [handwritten notes](https://www.dropbox.com/scl/fi/m691ghxq38a6lnoayrfxz/Condition-Numbers.pdf?rlkey=3x45kla27gcve0l2qv0d76sxi&st=i7kdwkps&dl=0)
+
 The goal of this lecture is to precisely define the notion of a [condition number](https://en.wikipedia.org/wiki/Condition_number), which quantifies the *sensitivity* of a function f(x) to *small perturbations* in the input.  A function that has a "large" condition number is called "ill-conditioned", and *any* algorithm to compute it may suffer inaccurate results from any sort of error (whether it be roundoff errors, input noise, or other approximations) — it doesn't mean you can't use that function, but it usually means you need to be careful (about both implementation and about interpretation of the results).
 
 For a given function $f(x)$ (with inputs and outputs in any normed vector space), the two important quantities are:
