@@ -126,6 +126,9 @@ For example, we can now explain why the monomial basis was so bad: it is easy to
 
 ## Lecture 6 ([Feb 14 💕](https://en.wikipedia.org/wiki/Valentine%27s_Day))
 
+* pset 1 solutions: coming soon
+* pset 2: coming soon, due Feb 21
+
 Introduced the topic of least-square fitting of data to curves.  As long as the fitting function is linear in the unknown coefficients c (e.g. a polynomial, or some other linear combination of basis functions), showed that minimizing the sum of the squares of the errors corresponds to minimizing the norm of the residual, i.e. the "loss function" L(c) = ‖Ac - y‖², where $A$ is a "tall" matrix whose *rows* correspond to the data points and whose *columns* correspond to the basis functions.  (This is an *overdetermined* linear system because there are more equations than unknowns: we have too few parameters to make the curve go through all the data points in general, unlike interpolation.)
 
 It is a straightforward calculus exercise to show that ∇L = 2Aᵀ(Ac - y), which means that optimal coefficients c can be found by setting the gradient to zero, and ∇L=0 implies the "normal equations" AᵀAc = Aᵀy.   In principle, these can be solved directly, the normal equations square the condition number of A (κ(AᵀA)=κ(A)²) so they are normally solved in a different way, typically by [QR factorization](https://en.wikipedia.org/wiki/QR_decomposition) of A (or sometimes using the [SVD](https://en.wikipedia.org/wiki/Singular_value_decomposition) of A); there are typically library functions that do this for you e.g. `c = numpy.linalg.lstsq(A, y)` in Python or `c = A \ y` in Julia and Matlab.
