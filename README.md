@@ -124,7 +124,7 @@ For example, we can now explain why the monomial basis was so bad: it is easy to
 **Further reading:** FNC book: [problems and conditioning](https://fncbook.com/conditioning) and
 [conditioning linear systems](https://fncbook.com/condition-number#index-tqii4dtlc9).  [18.06 lecture notes on conditioning of linear systems](https://nbviewer.org/github/stevengj/1806/blob/fall18/lectures/Conditioning.ipynb).   Advanced books like [*Numerical Linear Algebra* by Trefethen and Bau](https://www.stat.uchicago.edu/~lekheng/courses/309/books/Trefethen-Bau.pdf) (lecture 12) treat this subject in much more depth.  See also Trefethen, lecture 3, for more in-depth coverage of norms.  A fancy vocabulary word for a vector space with a norm (plus some technical criteria) is a [Banach space](https://en.wikipedia.org/wiki/Banach_space).
 
-## Lecture 6 ([Feb 14](https://en.wikipedia.org/wiki/Valentine%27s_Day))
+## Lecture 6 ([Feb 14 💕](https://en.wikipedia.org/wiki/Valentine%27s_Day))
 
 Introduced the topic of least-square fitting of data to curves.  As long as the fitting function is linear in the unknown coefficients c (e.g. a polynomial, or some other linear combination of basis functions), showed that minimizing the sum of the squares of the errors corresponds to minimizing the norm of the residual, i.e. the "loss function" L(c) = ‖Ac - y‖², where $A$ is a "tall" matrix whose *rows* correspond to the data points and whose *columns* correspond to the basis functions.  (This is an *overdetermined* linear system because there are more equations than unknowns: we have too few parameters to make the curve go through all the data points in general, unlike interpolation.)
 
