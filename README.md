@@ -68,7 +68,7 @@ Went through some simple definitions and examples in Julia (see notebook above),
 
 ## Lecture 3 (Feb 7)
 
-* Interpolation [OneNote Notebook](https://mitprod-my.sharepoint.com/:o:/g/personal/qiqi_mit_edu/EtIbMiRpjBpFsMzCtCrtV0MBy0J_u2YB9ltGUK90gXHhuQ?e=rbuKgM) [Code](https://colab.research.google.com/drive/1khUewCdh5Io97dry6O5pZNaP7_4w8QFC?usp=sharing) [Complete Notes](https://colab.research.google.com/drive/1NyU48yqYY91h2a6sZZvr1WcFUxCiDZXS?usp=sharing)
+* Interpolation [OneNote Notebook](https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28Interpolation%20and%20Curve%20Fitting%2F20250207.one%7C2528b4d7-6843-4fa0-ab2b-e6fa127e8352%2F%29&wdorigin=717) [Code](https://colab.research.google.com/drive/1khUewCdh5Io97dry6O5pZNaP7_4w8QFC?usp=sharing) [Complete Notes](https://colab.research.google.com/drive/1NyU48yqYY91h2a6sZZvr1WcFUxCiDZXS?usp=sharing)
 * [pset 1](psets/pset1.ipynb): due Feb 14
 
 Discussed the important problem of **interpolating** a function $f(x)$ from a set of discrete data points, which shows up in a vast number of real problems and connects to many other areas of numerical methods (e.g. differentiation and integration).  To begin with, considered the simplest algorithm of [piecewise linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) in one dimension, with points $x$ at spacing $\Delta x$, and showed that (for a twice-differentiable function) the error (the difference between the interpolant and the true function) converges as $O(\Delta x^2)$ (second-order convergence).
@@ -85,7 +85,8 @@ If possible, try to install Julia on your laptop beforehand using the instructio
 
 This won't be recorded, but you can find a [video of a similar tutorial by Prof. Johnson last year (MIT only)](https://mit.zoom.us/rec/share/oirQFHELtxJkopybssFzml7YrudRyvIlmXjmgq4YemqmjT0P7wMGCd9ilC7SMZ_o.iBZ-UO6_ww9WjwF0?startTime=1705960822000), as well as many other tutorial videos at [julialang.org/learning](https://julialang.org/learning/).
 
-## Lecture 4 (Feb 10)
+## Lecture 4 (Feb 10) 
+* Notes: [OneNote Notebook](https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28Interpolation%20and%20Curve%20Fitting%2F20250210.one%7Cd3d07c1f-f11c-4397-a2c2-a16b1dbb16bf%2F%29&wdorigin=717)
 
 One approach to generalizing piecewise-linear interpolation is to interpolate $n$ points with a polynomial $p(x)$ of degree of degree $n-1$.  This is an important technique for many applications, and the general topic of approximating functions by polynomials has vast importance in numerical analysis, but requires care if $n$ becomes much larger than 4 (cubic) or so, even for smooth functions (no noise).
 
@@ -128,6 +129,7 @@ For example, we can now explain why the monomial basis was so bad: it is easy to
 
 * pset 1 solutions: coming soon
 * [pset 2](psets/pset2.ipynb): due Feb 21
+* Notes: [OneNote Notebook](https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28Interpolation%20and%20Curve%20Fitting%2F20200214.one%7Cde0fab26-c724-4076-ac58-f6f4e45e33f4%2F%29&wdorigin=717)
 
 Introduced the topic of least-square fitting of data to curves.  As long as the fitting function is linear in the unknown coefficients c (e.g. a polynomial, or some other linear combination of basis functions), showed that minimizing the sum of the squares of the errors corresponds to minimizing the norm of the residual, i.e. the "loss function" L(c) = ‖Ac - y‖², where $A$ is a "tall" matrix whose *rows* correspond to the data points and whose *columns* correspond to the basis functions.  (This is an *overdetermined* linear system because there are more equations than unknowns: we have too few parameters to make the curve go through all the data points in general, unlike interpolation.)
 
