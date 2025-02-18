@@ -85,7 +85,7 @@ If possible, try to install Julia on your laptop beforehand using the instructio
 
 This won't be recorded, but you can find a [video of a similar tutorial by Prof. Johnson last year (MIT only)](https://mit.zoom.us/rec/share/oirQFHELtxJkopybssFzml7YrudRyvIlmXjmgq4YemqmjT0P7wMGCd9ilC7SMZ_o.iBZ-UO6_ww9WjwF0?startTime=1705960822000), as well as many other tutorial videos at [julialang.org/learning](https://julialang.org/learning/).
 
-## Lecture 4 (Feb 10) 
+## Lecture 4 (Feb 10)
 * Notes: [OneNote Notebook](https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28Interpolation%20and%20Curve%20Fitting%2F20250210.one%7Cd3d07c1f-f11c-4397-a2c2-a16b1dbb16bf%2F%29&wdorigin=717)
 
 One approach to generalizing piecewise-linear interpolation is to interpolate $n$ points with a polynomial $p(x)$ of degree of degree $n-1$.  This is an important technique for many applications, and the general topic of approximating functions by polynomials has vast importance in numerical analysis, but requires care if $n$ becomes much larger than 4 (cubic) or so, even for smooth functions (no noise).
@@ -127,7 +127,7 @@ For example, we can now explain why the monomial basis was so bad: it is easy to
 
 ## Lecture 6 ([Feb 14 💕](https://en.wikipedia.org/wiki/Valentine%27s_Day))
 
-* pset 1 solutions: coming soon
+* [pset 1 solutions](psets/pset1sol.ipynb)
 * [pset 2](psets/pset2.ipynb): due Feb 21
 * Notes: [OneNote Notebook](https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28Interpolation%20and%20Curve%20Fitting%2F20200214.one%7Cde0fab26-c724-4076-ac58-f6f4e45e33f4%2F%29&wdorigin=717)
 
