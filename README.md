@@ -143,8 +143,20 @@ In both cases, compared the effect of the monomial basis vs. the Chebyshev-polyn
 
 ## Lecture 7 (TUESDAY, Feb 18)
 
-Multidimensional interpolation and fitting.
+First, discussed the computational cost of interpolation and fitting.
+* Solving the least-squares problem $\min_x \Vert Ax - b\Vert$ for an $m \times n$ matrix $A$ (m points and n basis functions) has $O(mn^2)$ cost, whether you use the normal equations $A^T A x = A^T b$ (which squares the condition number) or a more accurate method like QR factorization.
+* Interpolation can be thought of as the special case $m=n$: solving an $n \times n$ linear system $Ax =b$ is $O(n^3)$ (usually done by [LU factorization](https://en.wikipedia.org/wiki/LU_decomposition), which is the matrix-factor form of Gaussian elimination).   However, for specific cases there are more efficient algorithms: for polynomial interpolation from arbitrary points, the barycentric Lagrange formula (mentioned above) has $O(n^2)$ cost, and using the Chebyshev-polynomial basis from Chebyshev points has $O(n \log n)$ cost (via FFTs).
+
+The computational scaling becomes even more important when you go to higher dimensions.  We discussed a few cases cases, using two dimensions (2d) for simplicity:
+* If you have a general basis $b_k(x,y)$ of 2d basis functions, you can form a Vandermonde-like matrix $A$ as above (whose columns are hte basis functions and whose rows are the grid points), and solve it as before.  The matrices get much larger in higher dimensions, though!
+* If you can choose a Cartesian "grid" of points, also known as a "tensor product grid" (a grid in x by a grid in y), then it is convenient to use separable basis functions $p_i(x) p_j(y)$, e.g. products of polynomials.  While you can still form a Vandermonde-like system as above, it turns out that there are *much* more efficient algorithms in this case.  (The ideal case is a tensor product of Chebyshev points along each dimension, in which case you can interpolate products of Chebyshev polynomials in $O(n \log n)$ cost.)
+* If you have a tensor product grid, you can treat it as a collection of rectangles, and do [bilinear interpolation](https://en.wikipedia.org/wiki/Bilinear_interpolation) on each rectangle — this is the obvious generalization of piecewise-linear interpolation in 1d.  It is fast and second-order accurate (and there are higher-order versions like [bicubic interpolation](https://en.wikipedia.org/wiki/Bicubic_interpolation) too).
+* If you have an irregular set of points, there is *still* an analogue of piecewise-linear interpolation.  One first connects the set of points into *triangles* in 2d (or tetrahedra in 3d, or more generally "simplices"); this is a tricky problem of computational geometry, but a standard and robust solution is called [Delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation).   Once this is done, you can interpolate within each triangle (or simplex) using an affine function (linear + constant $a^T x + \beta$).
+
+**Further reading**: FNC book [section 2.5](https://fncbook.com/efficiency) on efficiency of solving Ax=b; much more detail on both this and the least-squares case can be found in e.g. [Trefethen & Bau's *Numerical Linear Algebra*](https://people.maths.ox.ac.uk/trefethen/text.html) and many other sources.  Links to the barycentric formula can be found above, along with fast algorithms for Chebyshev interpolation.   Tensor-product-grid interpolation and fitting products are also closely related to [Kronecker products of matrices](https://www.sciencedirect.com/science/article/pii/S0377042700003939), and there are often more efficient algorithms than simply forming the giant "Vandermonde" matrix and solving it.
 
 ## Lecture 8 (Feb 19)
 
-Numerical integration ("quadrature").
+A brief introduction to radial basis functions.
+
+New topic: Numerical integration ("quadrature").
