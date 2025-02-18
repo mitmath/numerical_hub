@@ -127,7 +127,7 @@ For example, we can now explain why the monomial basis was so bad: it is easy to
 
 ## Lecture 6 ([Feb 14 💕](https://en.wikipedia.org/wiki/Valentine%27s_Day))
 
-* [pset 1 solutions](psets/pset1sol.ipynb)
+* [pset 1 solutions](https://nbviewer.org/github/mitmath/numerical_hub/blob/main/psets/pset1sol.ipynb)
 * [pset 2](psets/pset2.ipynb): due Feb 21
 * Notes: [OneNote Notebook](https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28Interpolation%20and%20Curve%20Fitting%2F20200214.one%7Cde0fab26-c724-4076-ac58-f6f4e45e33f4%2F%29&wdorigin=717)
 
