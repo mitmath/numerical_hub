@@ -175,7 +175,7 @@ These error estimates are *upper* bounds, but some functions do much better!   F
 ## Lecture 9 (Feb 21)
 
 * pset 2 solutions: coming soon
-* pset 3: coming soon
+* [pset 3](psets/pset3.ipynb): due Friday, Feb 28.
 
 Continued analysis from Lecture 8 (see notes).  We related the convergence rate of trapezoidal rule to the convergence rate of the Fourier cosine series, and showed (using integration by parts) that the convergence rate of the cosine series is determined by the behavior of the odd-order derivatives at the boundaries (assuming that the function is smooth in the interior).   This reproduces the $O(1/N^2)$ convergence rate in the general case from before, and $O(1/N^4)$ convergence if the first derivatives match at the boundary, etcetera … with "superalgebraic" convergence *faster than any power law* if all the odd derivatives match (e.g. vanish) at the boundary.  (The convergence is exponential for "analytic" functions, i.e. functions with a convergent Taylor series.)
 
