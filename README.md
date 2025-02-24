@@ -184,3 +184,8 @@ Moreover, showed how we can arrange for this fast convergence to occur all the t
 Finally, if we change variables back to $x$, we see that the cosine series for $f(\cos \theta)$ is precisely an expansion in [Chebyshev polynomials](https://en.wikipedia.org/wiki/Chebyshev_polynomials) $T_k(x) = \cos(k \cos^{-1} x)$, which are now revealed to be a Fourier cosine series in disguise.  This is why Chebyshev polynomials are so nicely behaved (they inherit all the nice properties of the cosine basis, but work for non-periodic functions thanks to the change of variables) and is why Chebyshev points $\cos(n\pi/N)$ were so important (they correspond to equally spaced angles for the cosine series).   In fact, Clenshaw–Curtis quadrature is exactly equivalent to evaluating the integrand at Chebyshev points, interpolating it with a polynomial, and integrating the polynomial interpolant.
 
 **Further reading:**: See further reading for lecture 8, and for lecture 4 on Chebyshev polynomials.
+
+## Lecture 10 (Feb 22)
+
+* [quadrature overview slides](https://docs.google.com/presentation/d/1jN49UvkUHpKLPW7gfKFQgiajNAl82x4nnAcMcXGERFQ/edit?usp=sharing): now that we've analyzed trapezoidal rule and Clenshaw–Curtis, let's zoom out to survey the bigger picture
+* Root finding — "quadratic" convergence of Newtons's method.  Example: [Newton's method](https://github.com/mitmath/18335/blob/spring21/notes/newton-sqrt.pdf) for square roots and accompanying [Julia notebook](https://nbviewer.jupyter.org/github/mitmath/18335/blob/spring21/notes/Newton-Square-Roots.ipynb).
