@@ -188,4 +188,5 @@ Finally, if we change variables back to $x$, we see that the cosine series for $
 ## Lecture 10 (Feb 22)
 
 * [quadrature overview slides](https://docs.google.com/presentation/d/1jN49UvkUHpKLPW7gfKFQgiajNAl82x4nnAcMcXGERFQ/edit?usp=sharing): now that we've analyzed trapezoidal rule and Clenshaw–Curtis, let's zoom out to survey the bigger picture
-* Root finding — "quadratic" convergence of Newtons's method.  Example: [Newton's method](https://github.com/mitmath/18335/blob/spring21/notes/newton-sqrt.pdf) for square roots and accompanying [Julia notebook](https://nbviewer.jupyter.org/github/mitmath/18335/blob/spring21/notes/Newton-Square-Roots.ipynb).
+
+Overview of the big picture of quadrature algorithms: Clenshaw–Curtis is not the end!
