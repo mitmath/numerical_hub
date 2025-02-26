@@ -207,6 +207,9 @@ Famous applications of Richardson extrapolation include [Romberg integration](ht
 
 ## Lecture 12 (Feb 28)
 
+* pset 3 solutions: to be posted
+* pset 4: to be posted
+
 Root finding and Newton's method.
 
 **Further reading**: [FNC book, chapter 4](https://fncbook.com/overview-3), especially [section 4.3](https://fncbook.com/newton) on Newton's method.
@@ -222,5 +225,8 @@ Numerical methods for ordinary differential equations (ODEs).
 More numerical ODEs.
 
 ## Lecture 15 (Mar 7)
+
+* pset 4 solutions: to be posted
+* pset 5: to be posted
 
 More numerical ODEs.
