@@ -204,3 +204,23 @@ Discussed [Richardson extrapolation](https://en.wikipedia.org/wiki/Richardson_ex
 Famous applications of Richardson extrapolation include [Romberg integration](https://en.wikipedia.org/wiki/Romberg%27s_method) (extrapolating low-order quadrature formulas), the [Bulirsch–Stoer ODE method](https://en.wikipedia.org/wiki/Bulirsch%E2%80%93Stoer_algorithm) (extrapolating ODE solutions to zero stepsize), and an [algorithm by Ridders (1982)](https://www.sciencedirect.com/science/article/pii/S0141119582800570) for extrapolating finite-difference derivatives (also reviewed in [*Numerical Recipes* sec. 5.7](http://www.foo.be/docs-free/Numerical_Recipe_In_C/c5-7.pdf)).
 
 **Further reading:** Unfortunately, almost all descriptions of Richardson extrapolation combine it with a particular application, e.g. many textbooks only describe it in the context of ODEs, or integration, or differentiation.  [These course notes by Flaherty](https://web.archive.org/web/20190214233129/http://www.cs.rpi.edu/~flaherje/pdf/ode4.pdf) are in the ODE context, but are written in a general enough way that you can see the applicability to other problems, and they discuss adaptive error estimation briefly at the end.  The [Richardson.jl package](https://github.com/JuliaMath/Richardson.jl) in Julia implements the algorithm in a very general setting, and its documentation includes a number of examples; it's used by the [Romberg.jl package](https://github.com/fgasdia/Romberg.jl) for Romberg integration and by the [FiniteDifferences.jl](https://github.com/JuliaDiff/FiniteDifferences.jl) package for extrapolating finite-difference approximations.   In Python, I'm not currently aware of any general-purpose implementation (though there are implementations in the context of e.g. derivatives or integration).
+
+## Lecture 12 (Feb 28)
+
+Root finding and Newton's method.
+
+**Further reading**: [FNC book, chapter 4](https://fncbook.com/overview-3), especially [section 4.3](https://fncbook.com/newton) on Newton's method.
+
+## Lecture 13 (Mar 3)
+
+Numerical methods for ordinary differential equations (ODEs).
+
+**Further reading**: [FNC book, chapter 6](https://fncbook.com/overview-5).
+
+## Lecture 14 (Mar 5)
+
+More numerical ODEs.
+
+## Lecture 15 (Mar 7)
+
+More numerical ODEs.
