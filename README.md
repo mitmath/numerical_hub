@@ -208,7 +208,7 @@ Famous applications of Richardson extrapolation include [Romberg integration](ht
 ## Lecture 12 (Feb 28)
 
 * pset 3 solutions: to be posted
-* pset 4: to be posted
+* [pset 4](psets/pset4.ipynb): due Friday, March 7
 
 Root finding is the problem of solving $f(x) = 0$.   For linear functions, this is easy.  For scalar polynomial functions, it's easy for degree 2 (using the [quadratic formula](https://en.wikipedia.org/wiki/Quadratic_formula)); for degree > 4 it is [impossible](https://en.wikipedia.org/wiki/Abel%E2%80%93Ruffini_theorem) to have a closed-form expression, but there are nowadays "easy" methods involving [eigenvalues of companion matrices](https://en.wikipedia.org/wiki/Companion_matrix).   However, for more general nonlinear functions there is not such a straightforward approach to get the roots.  You are left with [iterative methods](https://en.wikipedia.org/wiki/Iterative_method): a procedure to obtain a sequence $x_k$ of values, starting from some "guess" $x_0$, that approaches the root (hopefully quickly).
 
