@@ -230,9 +230,13 @@ Another important class of methods are [numerical continuation](https://en.wikip
 
 ## Lecture 13 (Mar 3)
 
-Numerical methods for ordinary differential equations (ODEs).
+* lecture notes/code: to be posted
 
-**Further reading**: [FNC book, chapter 6](https://fncbook.com/overview-5).
+Numerical methods for ordinary differential equations (ODEs).  Introduced the concept of an [initial value problem](https://en.wikipedia.org/wiki/Initial_value_problem), the [forward Euler (explicit)](https://en.wikipedia.org/wiki/Euler_method) method, the [backward Euler (implicit)](https://en.wikipedia.org/wiki/Backward_Euler_method) method, and the [midpoint method](https://en.wikipedia.org/wiki/Midpoint_method).   Showed that forward Euler has $O(\Delta t)$ error and the midpoint method has $O(\Delta t^2)$ error.
+
+Looked at an example problem $\frac{du}{dt} = -u$ with $u(0)=1$, which has the analytical solution $u(t) = e^{-t}$.  Numerically, forward Euler and the midpoint method both exhibit the expected convergence rates.  But even though the midpoint method *seems* better in terms of convergence rate, its actual error is much *larger* than forward Euler until $\Delta t$ gets very small.   We will see next time that it is suffering from an "instability" where the errors *grow exponentially* with time $t$, making the "constant coefficient" of the $O(\Delta t^2)$ exponentially large.
+
+**Further reading**: [FNC book, chapter 6](https://fncbook.com/overview-5), sections 6.1–6.2.  FENA book, chapter 4 and section 4.1.  You can also find hundreds of other web pages and videos on these topics.  3Blue1Brown has an [entertaining introduction to the idea of a differential equation](https://www.youtube.com/watch?v=p_di4Zn4wz4).   An nice video about the [history of numerical ODE solvers](https://www.youtube.com/watch?v=gdxYsVniOYo) talks about the pioneering contributions of [Katherine Johnson](https://en.wikipedia.org/wiki/Katherine_Johnson) and her portrayal in the 2016 film [*Hidden Figures*](https://en.wikipedia.org/wiki/Hidden_Figures).
 
 ## Lecture 14 (Mar 5)
 
