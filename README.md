@@ -252,7 +252,7 @@ Moreover, we used the "stencil" algorithm from pset 1 to derive a *3rd-order* fi
 
 An important result is the **Dahlquist equivalence** theorem (closely related to the [Lax (or Lax–Richtmyer) equivalence theorem](https://en.wikipedia.org/wiki/Lax_equivalence_theorem)):
 * If a method is *both consistent and zero-stable*, then it is **globally convergent**: the approximate solution $\tilde{u}(t)$ approaches the exact solution $u(t)$ at any time $t$, as $\Delta t \to 0$, with a convergence rate $\Vert\tilde{u}(t) - u(t)\Vert = O(\Delta t^p)$ matching the local truncation error.
-* 
+
 That is, there are only two ways an ODE method could go badly wrong: either you have a bug in your finite-difference approximation (it's *inconsistent* with the equation you are discretizing, i.e. not approximating the right equation), or the solution diverges (it's *unstable*) as $\Delta t \to 0$.   This is good news, in a way!  You can't have a consistent scheme that silently converges to the wrong answer — if it fails, it will "fail loudly" in an obvious way (diverging).
 
 All three of the schemes (Euler, midpoint, and third-order) from last lecture were consistent (with $p = 1,2,3$ respectively).   But the third-order scheme was zero-unstable.   (The midpoint rule was zero-stable: its solutions converged as $\Delta t \to 0$ for a *fixed* time $t$, but it exhibited a different kind of instability that we will discuss next time: its solutions could diverge for fixed $\Delta t$ as the time $t$ increased.)  Besides numerical experiments, how does one analyze zero-stability?
