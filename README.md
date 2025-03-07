@@ -230,7 +230,7 @@ Another important class of methods are [numerical continuation](https://en.wikip
 
 ## Lecture 13 (Mar 3)
 
-* lecture notes/code: to be posted
+* lecture notes/code: (One Note)[https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28B.%20Initial%20Value%20Problems%2F20250303.one%7C6663d749-3747-45de-bb34-f8393732d800%2F%29&wdorigin=717]
 
 Numerical methods for ordinary differential equations (ODEs).  Introduced the concept of an [initial value problem](https://en.wikipedia.org/wiki/Initial_value_problem) $\frac{du}{dt} = f(u,t)$ given $u(0)$, and some numerical methods: the [forward Euler (explicit)](https://en.wikipedia.org/wiki/Euler_method) method, the [backward Euler (implicit)](https://en.wikipedia.org/wiki/Backward_Euler_method) method, and the [midpoint method](https://en.wikipedia.org/wiki/Midpoint_method).   Showed that forward Euler has $O(\Delta t)$ error and the midpoint method has $O(\Delta t^2)$ error.
 
@@ -242,7 +242,7 @@ Moreover, we used the "stencil" algorithm from pset 1 to derive a *3rd-order* fi
 
 ## Lecture 14 (Mar 5)
 
-* notes and code: to be posted
+* notes and code: (One Note)[https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28B.%20Initial%20Value%20Problems%2F20250305.one%7Cd1ccb4e9-d0d8-414c-98cd-f1392b3d5277%2F%29&wdorigin=717]
 
 **Stability** of numerical ODE methods.  The term "stability" has special meanings in this context, different from other areas of numerical analysis where "stability" is mostly about the sensitivity of an algorithm to roundoff errors.  For ODE methods, "stability" refers to sensitivity to **truncation error** $\Delta t$ (the finite timesteps used to approximate $du/dt$).  In particular, there are three central concerns for any ODE method:
 
@@ -265,7 +265,7 @@ Showed by this analysis that Euler is zero-stable (its $A$ is a $1 \times 1$ mat
 
 ## Lecture 15 (Mar 7)
 
-* notes and code: to be posted
+* notes and code: [One Note](https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28B.%20Initial%20Value%20Problems%2F20250307.one%7C57e8a4c4-7a40-40fb-b165-f8144f92a40c%2F%29&wdorigin=717)
 * pset 4 solutions: to be posted
 * pset 5: to be posted
 
