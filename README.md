@@ -265,7 +265,28 @@ Showed by this analysis that Euler is zero-stable (its $A$ is a $1 \times 1$ mat
 
 ## Lecture 15 (Mar 7)
 
+* notes and code: to be posted
 * pset 4 solutions: to be posted
 * pset 5: to be posted
+
+**Linear stability analysis** of ODEs and discretization schemes.
+
+* The *exact* ODE $\frac{du}{dt} = \lambda u$ has exponentially growing solutions for $\Re \lambda > 0$, and non-growing ("stable") solutions for $\Re \lambda \ke 0$.   This analysis extends to linear autonomous ODEs $\frac{du}{dt} = A u$ where $A$ is a (diagonalizable) matrix, since we can just check each eigenvalue $\lambda$ of $A$.  (Later, we will also extend this analysis to nonlinear autonomous ODEs $\frac{du}{dt} = f(u)$ by approximately *linearizing* $f(u)$ around a root using the Jacobian of $f$.)
+* When we *discretize* the ODE, can plug $\lambda u$ (or $Au$) in for the right-hand side, for a fixed $\Delta t$, and again use eigenvalues to analyze whether $u_k \approx u(k\Delta t)$ is growing or decaying with $k$.  (This reduces to "zero stability" analysis in the limit $\Delta t \to 0$, for which the right-hand-side disappears from the formula for $u_k$.)
+
+In this way, we find that certain discretization schemes are **linearly stable** (non-growing $u_k$) only for certain values of $\lambda \Delta t$.
+
+To begin with, we analyzed the *forward Euler* ("explicit") scheme $u_{k+1} = u_k + \Delta t f(u_k) = u_k + \Delta t (\lambda u_k)$ for $\frac{du}{dt} = \lambda u$, giving $u_{k} = (1 + \lambda \Delta t)^k u_0$.  Hence, it is stable for $|1 + \lambda \Delta t| \le 1$, which the interior of a *circle* of radius 1 in the complex $\lambda \Delta t$ plane centered at $\lambda \Delta t = -1$.  Hence:
+
+* For $\frac{du}{dt} = -u$, $\lambda = 1$ so it is stable for $0 \le \Delta t \le 2$.  (This is why it performed so well numerically.)  (The fact that it is only stable for certain values of $\Delta t$ in this case is called **conditional stability**; note that this depends on the right-hand side of the ODE!)
+* For $\frac{d^2 u}{dt^2} = -u$, we saw last time that this is equivalent to the $2 \times 2$ system $\frac{d}{dt} \begin{pmatrix} u \\ v \end{pmatrix} = \underbrace{\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}_{A} \begin{pmatrix} u \\ v \end{pmatrix}$, where $A$ has eigenvalues $\lambda = \pm i$.   In this case $|1 + \lambda \Delta t| > 1$ for *all* $\Delta t > 0$, and forward Euler is *linearly unstable*.   It is still *zero stable*, so it still converges as $\Delta t \to 0$ for any fixed time $t$!  But instead of oscillating solutions (for the exact ODE), we have solutions that are oscillating and slowly exponentially growing (more and more slowly as $\Delta t$ gets smaller, which allows it to converge).  Even though the solutions converge, people are often unhappy with ODE methods that generate exponential growth (not present in the exact ODE) as you run for longer and longer times!
+
+Next, we analyzed the *backward Euler* ("implicit") scheme $u_{k+1} = u_k + \Delta t f(u_{k+1}) = u_k + \Delta t (\lambda u_{k+1})$.  This gives $u_{k} = \frac{1}{(1 - \lambda \Delta t)^k} u_0$, which is stable for $|1 - \lambda \Delta t| \ge 1$.  Notice the $\ge$ sign!  This is the *exterior* of a circle of radius 1 in the complex $\lambda \Delta t$ plane centered at $\lambda \Delta t = +1$, which is a *superset* of the stable region $\Re \lambda \ke 0$ of the *exact* ODE solutions.
+
+* This is why people use implicit ODE schemes: they are often more complicated to implement, because $f(u_{k+1})$ appears on the right-hand-side, requiring you to solve for $u_{k+1}$ (which gets expensive as $f$ gets more complicated), but they tend to be *more stable* than explicit schemes.
+
+**Further reading:** FENA book, section 4.3.
+
+## Lecture 16 (Mar 10)
 
 More numerical ODEs.
