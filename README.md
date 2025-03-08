@@ -267,7 +267,7 @@ Showed by this analysis that Euler is zero-stable (its $A$ is a $1 \times 1$ mat
 
 * notes and code: [One Note](https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28B.%20Initial%20Value%20Problems%2F20250307.one%7C57e8a4c4-7a40-40fb-b165-f8144f92a40c%2F%29&wdorigin=717)
 * pset 4 solutions: to be posted
-* pset 5: to be posted
+* [pset 5](psets/pset5.ipynb): due Friday March 14
 
 **Linear stability analysis** of ODEs and discretization schemes.
 
