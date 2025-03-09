@@ -242,7 +242,7 @@ Moreover, we used the "stencil" algorithm from pset 1 to derive a *3rd-order* fi
 
 ## Lecture 14 (Mar 5)
 
-* notes and code: (One Note)[https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28B.%20Initial%20Value%20Problems%2F20250305.one%7Cd1ccb4e9-d0d8-414c-98cd-f1392b3d5277%2F%29&wdorigin=717] (Code)[https://colab.research.google.com/drive/1fmyyPSp5gImrcj42wxxn3kBqTDavq5qJ?usp=sharing] 
+* notes and code: (One Note)[https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28B.%20Initial%20Value%20Problems%2F20250305.one%7Cd1ccb4e9-d0d8-414c-98cd-f1392b3d5277%2F%29&wdorigin=717] (Code)[https://colab.research.google.com/drive/1fmyyPSp5gImrcj42wxxn3kBqTDavq5qJ?usp=sharing]
 
 **Stability** of numerical ODE methods.  The term "stability" has special meanings in this context, different from other areas of numerical analysis where "stability" is mostly about the sensitivity of an algorithm to roundoff errors.  For ODE methods, "stability" refers to sensitivity to **truncation error** $\Delta t$ (the finite timesteps used to approximate $du/dt$).  In particular, there are three central concerns for any ODE method:
 
@@ -266,7 +266,7 @@ Showed by this analysis that Euler is zero-stable (its $A$ is a $1 \times 1$ mat
 ## Lecture 15 (Mar 7)
 
 * notes and code: [One Note](https://mitprod-my.sharepoint.com/personal/qiqi_mit_edu/_layouts/15/Doc.aspx?sourcedoc={24321bd2-8c69-451a-b0cc-c2b42aed5743}&action=view&wd=target%28B.%20Initial%20Value%20Problems%2F20250307.one%7C57e8a4c4-7a40-40fb-b165-f8144f92a40c%2F%29&wdorigin=717) [Code](https://colab.research.google.com/drive/1fmyyPSp5gImrcj42wxxn3kBqTDavq5qJ?usp=sharing)
-* pset 4 solutions: to be posted
+* [pset 4 solutions](psets/pset4sol.ipynb)
 * [pset 5](psets/pset5.ipynb): due Friday March 14
 
 **Linear stability analysis** of ODEs and discretization schemes.
