@@ -289,4 +289,14 @@ Next, we analyzed the *backward Euler* ("implicit") scheme $u_{k+1} = u_k + \Del
 
 ## Lecture 16 (Mar 10)
 
-More numerical ODEs.
+Analyzed the linear stability of the midpoint rule, and found that it was only stable for a small range of purely imaginary $\lambda \Delta t$ values.
+
+To illustrate the utility of "implicit" schemes like backwards Euler, which are more difficult to implement and require a more expensive time-stepping procedure (solving a system of equations on each step, possibly even a nonlinear system), considered a simple example problem involving heat flow.  In a system where heat can flow quickly between some components (e.g. metals in contact) but slowly between other components (e.g. between metals and air), one obtains a ["stiff" ODE](https://en.wikipedia.org/wiki/Stiff_equation), characterized by a **large ratio of timescales (eigenvalues)**.
+
+With forward Euler (or other explicit methods) in a stiff problem, a small $\Delta t$ is required to resolve the fast timescale in a stable way, but then the number of timesteps is large (the slow timescale divided by $\Delta t$).   With *backward* Euler, however, it remains stable even for very large $\Delta t$, much larger than the fast timescale (although then the fast dynamics can't be observed accurately).   This is why implicit schemes are attractive: in stiff systems, the more-expensive implicit timesteps are worth it because of the huge savings in the *number* of timesteps (from the larger $\Delta t$).
+
+**Further reading:** The FENA book, section 4.10, has some further discussion of stiff systems. There are many sources online about methods for stiff equations and implicit ODE methods.  See e.g. [these course notes from MIT 18.337/6.338](https://book.sciml.ai/notes/09-Solving_Stiff_Ordinary_Differential_Equations/), which focuses mainly on ways to construct the Jacobian (to linearize the right-hand-side) and/or efficiently perform the implicit solves on each step for the nonlinear case.  The [book by Griffiths and Highham (2010)](https://link.springer.com/book/10.1007/978-0-85729-148-6), along with many other similar books on numerical ODEs, contains a wealth of information, at a much more formal level than this course.
+
+## Lecture 17 (Mar 12)
+
+More on numerical ODEs: Runga–Kutta methods.
