@@ -289,6 +289,8 @@ Next, we analyzed the *backward Euler* ("implicit") scheme $u_{k+1} = u_k + \Del
 
 ## Lecture 16 (Mar 10)
 
+* notes and code: see links above
+
 Analyzed the linear stability of the midpoint rule, and found that it was only stable for a small range of purely imaginary $\lambda \Delta t$ values.
 
 To illustrate the utility of "implicit" schemes like backwards Euler, which are more difficult to implement and require a more expensive time-stepping procedure (solving a system of equations on each step, possibly even a nonlinear system), considered a simple example problem involving heat flow.  In a system where heat can flow quickly between some components (e.g. metals in contact) but slowly between other components (e.g. between metals and air), one obtains a ["stiff" ODE](https://en.wikipedia.org/wiki/Stiff_equation), characterized by a **large ratio of timescales (eigenvalues)**.
