@@ -301,4 +301,21 @@ With forward Euler (or other explicit methods) in a stiff problem, a small $\Del
 
 ## Lecture 17 (Mar 12)
 
-More on numerical ODEs: Runga–Kutta methods.
+* notes and code: see links above
+
+More numerical ODE schemes:
+* [trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule_(differential_equations)) (implicit) — analyzed order of accuracy (= 2) and stability (Re λ ≤ 0).  For large Δt, it produces undesirable oscillations if λ is real and < 0, but for purely imaginary λ (oscillating ODEs) it has the nice property of "conserving energy" (oscillating solutions with no artificial numerical growth or dissipation).
+* [BDF (backward difference) rule](https://en.wikipedia.org/wiki/Backward_differentiation_formula) (implicit) — analyzed an order-2 scheme, which has the same stability as trapezoidal rule, but does not introduce oscillations for real λ (while it introduces artifical dissipation for imaginary λ).
+* **Multi-step methods** and [Runge–Kutta schemes](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods) — began talking about schemes that operate in multiple "stages": first they "estimate" the future u at an intermediate timestep (e.g. k+½) to plug into the right-hand-side f(u,t), and then exploit this to get an improved value for u at timestep k+1.  Gave an example of a second-order *explicit* scheme using this strategy.
+
+**Further reading:** FNC books, sections 6.4 and 6.6.  FENA book section 4.6 (trapezoidal) and 4.8–4.9 (Runge–Kutta and multistep methods).
+
+## Lecture 18 (Mar 14)
+
+Numerical linear algebra: thinking about matrix factorizations (LU, QR, SVD, diagonalization, …) rather than (hand) algorithms.
+
+**Further reading:** FNC book, section 2.4 on LU factorization (and section 3.3 on QR, and chapter 7).  [18.065 OCW lecture 2](https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-2-multiplying-and-factoring-matrices/), [Strang 18.06 lecture 4 on LU factorization](https://www.youtube.com/watch?v=5hO3MrzPa0A).  Matrix factorizations are discussed in every linear-algebra textbook at various levels of sophistication and practicality.
+
+## Lecture 19 (Mar 17)
+
+More numerical ODE schemes: Runge–Kutta, adaptive methods, and a brief survey of other important ideas.
