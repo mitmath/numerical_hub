@@ -313,7 +313,7 @@ More numerical ODE schemes:
 ## Lecture 18 (Mar 14)
 
 * pset 5 solutions: coming soon
-* pset 6: coming soon
+* [pset 6](psets/pset6.ipynb): due **11am** on Friday 3/21
 
 The big picture of numerical linear algebra: amateurs think mostly about element-by-element algorithms oriented towards hand calculations, whereas practitioners think mostly in terms of **factorizations** (which give the *results* of these algorithms in terms of a product of simpler matrices, which allow use to re-use and reason about them):
 
