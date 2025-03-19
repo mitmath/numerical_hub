@@ -271,7 +271,7 @@ Showed by this analysis that Euler is zero-stable (its $A$ is a $1 \times 1$ mat
 
 **Linear stability analysis** of ODEs and discretization schemes.
 
-* The *exact* ODE $\frac{du}{dt} = \lambda u$ has exponentially growing solutions for $\Re \lambda > 0$, and non-growing ("stable") solutions for $\Re \lambda \ke 0$.   This analysis extends to linear autonomous ODEs $\frac{du}{dt} = A u$ where $A$ is a (diagonalizable) matrix, since we can just check each eigenvalue $\lambda$ of $A$.  (Later, we will also extend this analysis to nonlinear autonomous ODEs $\frac{du}{dt} = f(u)$ by approximately *linearizing* $f(u)$ around a root using the Jacobian of $f$.)
+* The *exact* ODE $\frac{du}{dt} = \lambda u$ has exponentially growing solutions for $\Re \lambda > 0$, and non-growing ("stable") solutions for $\Re \lambda \le 0$.   This analysis extends to linear autonomous ODEs $\frac{du}{dt} = A u$ where $A$ is a (diagonalizable) matrix, since we can just check each eigenvalue $\lambda$ of $A$.  (Later, we will also extend this analysis to nonlinear autonomous ODEs $\frac{du}{dt} = f(u)$ by approximately *linearizing* $f(u)$ around a root using the Jacobian of $f$.)
 * When we *discretize* the ODE, can plug $\lambda u$ (or $Au$) in for the right-hand side, for a fixed $\Delta t$, and again use eigenvalues to analyze whether $u_k \approx u(k\Delta t)$ is growing or decaying with $k$.  (This reduces to "zero stability" analysis in the limit $\Delta t \to 0$, for which the right-hand-side disappears from the formula for $u_k$.)
 
 In this way, we find that certain discretization schemes are **linearly stable** (non-growing $u_k$) only for certain values of $\lambda \Delta t$.
