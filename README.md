@@ -398,17 +398,23 @@ In introductory linear algebra, you learn how to solve *tiny* (often just 2×2) 
 3. There is no analogue of the quadratic formula for polynomials of degree ≥ 5: there is no way to get the *exact* roots in a *finite* number of {±,×,÷,ᵏ√} operations.  This fact is one of the great triumphs of 19th-century mathematics, the [Abel–Ruffini theorem](https://en.wikipedia.org/wiki/Abel%E2%80%93Ruffini_theorem).   We can **still find the roots to any desired accuracy**, but the algorithms are of a fundamentally different nature than previous linear-algebra algorithms: they must be **iterative algorithms** that *approach* the eigenvalues but never exactly reach them.
 
 We have already learned one possible iterative algorithm for root finding, **Newton's method**.  Given $f(\lambda) = \det(A - \lambda I)$ and an initial guess for $\lambda$, recall that we just update our guess repeatedly with the Newton step $\lambda \longleftarrow \lambda - \f(\lambda) / f'(\lambda)$.  But how do we compute $f'(\lambda)$, the derivative of the determinant.  It turns out that there is a simple formula, from the fact that the determinant is the *product* of the eigenvalues:
+
 $$
 f(\lambda) = (\lambda_1 - \lambda) (\lambda_2 - \lambda) (\lambda_3 - \lambda) \cdots (\lambda_n - \lambda)
 $$
+
 where $\lambda_k$ are the eigenvalues of $A$ (hence $\lambda_k - \lambda$ are eigenvalues of $A - \lambda I$).   It follows by the product rule that
+
 $$
 f'(\lambda) = -(\lambda_2 - \lambda) \cdots (\lambda_n - \lambda) - (\lambda_1 - \lambda) (\lambda_3 - \lambda) \cdots (\lambda_n - \lambda) - \cdots = f(\lambda) \sum_k \frac{1}{\lambda_k - \lambda}
 $$
+
 But recalling that the [trace](https://en.wikipedia.org/wiki/Trace_(linear_algebra)) of a matrix is the *sum* of the eigenvalues, we can identify the final sum as $\text{tr}(A - \lambda I)^{-1}$.  Hence the Newton step is:
+
 $$
 \lambda \longleftarrow \lambda - \frac{f(\lambda)}{-f(\lambda)\text{tr}(A - \lambda I)^{-1}} = \lambda + \frac{1}{\text{tr}(A - \lambda I)^{-1}}
 $$
+
 which is a simple formula only involving the trace of an inverse (the determinant cancelled!).   We tried this in Julia and saw that it indeed converges rapidly to an eigenvalue, given a decent initial guess.   This is the starting point for some practical eigenvalue algorithms, in cases where you know roughly where the eigenvalues of interest lie (e.g. because you are tracking an eigenvalue as the matrix changes), and there are many generalizations of these ideas!
 
 Another simple iterative method is the [power iteration](https://en.wikipedia.org/wiki/Power_iteration): if you start with a random $x$ and multiply by $A$ repeatedly, then the resulting $A^k x$ converges to an eigenvector with the biggest $|\lambda|$.  Typically, you normalize at each step to avoid over/underflow.   Given the resulting eigenvector $q_1$, you can obtain the corresponding eigenvalue in a number of ways, most accurately by the ["Rayleigh quotient"](https://en.wikipedia.org/wiki/Rayleigh_quotient) $q_1^T A q_1$.   How do we find any *other* eigenvector?  For a real-symmetric matrix $A$, we can use the fact that the eigenvectors are *orthogonal*: generate another random $x$, and again repeatedly multiply by $A$, but at each step project orthogonal to $q_1$, i.e. $x \longleftarrow x - q_1 (q_1^T x)$.  This will lead to $q_2$, an eigenvector of the *second* biggest $|\lambda|$.  To find the third biggest $|\lambda|$, we can orthogonalize against both $q_1$ and $q_2$, and so forth.  (This repeated-projection algorithm is called "deflation" because it effectively shrinks the dimension of the space, projecting out one eigenvector at a time.)
