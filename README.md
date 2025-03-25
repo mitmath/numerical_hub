@@ -409,10 +409,10 @@ $$
 f'(\lambda) = -(\lambda_2 - \lambda) \cdots (\lambda_n - \lambda) - (\lambda_1 - \lambda) (\lambda_3 - \lambda) \cdots (\lambda_n - \lambda) - \cdots = f(\lambda) \sum_k \frac{1}{\lambda_k - \lambda}
 $$
 
-But recalling that the [trace](https://en.wikipedia.org/wiki/Trace_(linear_algebra)) of a matrix is the *sum* of the eigenvalues, we can identify the final sum as $\text{tr}(A - \lambda I)^{-1}$.  Hence the Newton step is:
+But recalling that the [trace](https://en.wikipedia.org/wiki/Trace_(linear_algebra)) of a matrix is the *sum* of the eigenvalues, we can identify the final sum as $\text{tr}\left[(A - \lambda I)^{-1}\right]$.  Hence the Newton step is:
 
 $$
-\lambda \longleftarrow \lambda - \frac{f(\lambda)}{-f(\lambda)\text{tr}(A - \lambda I)^{-1}} = \lambda + \frac{1}{\text{tr}(A - \lambda I)^{-1}}
+\lambda \longleftarrow \lambda - \frac{f(\lambda)}{-f(\lambda)\text{tr}\left[(A - \lambda I)^{-1}\right]} = \lambda + \frac{1}{\text{tr}\left[(A - \lambda I)^{-1}\right]}
 $$
 
 which is a simple formula only involving the trace of an inverse (the determinant cancelled!).   We tried this in Julia and saw that it indeed converges rapidly to an eigenvalue, given a decent initial guess.   This is the starting point for some practical eigenvalue algorithms, in cases where you know roughly where the eigenvalues of interest lie (e.g. because you are tracking an eigenvalue as the matrix changes), and there are many generalizations of these ideas!
