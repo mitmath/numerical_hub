@@ -397,7 +397,7 @@ In introductory linear algebra, you learn how to solve *tiny* (often just 2×2) 
 
 3. There is no analogue of the quadratic formula for polynomials of degree ≥ 5: there is no way to get the *exact* roots in a *finite* number of {±,×,÷,ᵏ√} operations.  This fact is one of the great triumphs of 19th-century mathematics, the [Abel–Ruffini theorem](https://en.wikipedia.org/wiki/Abel%E2%80%93Ruffini_theorem).   We can **still find the roots to any desired accuracy**, but the algorithms are of a fundamentally different nature than previous linear-algebra algorithms: they must be **iterative algorithms** that *approach* the eigenvalues but never exactly reach them.
 
-We have already learned one possible iterative algorithm for root finding, **Newton's method**.  Given $f(\lambda) = \det(A - \lambda I)$ and an initial guess for $\lambda$, recall that we just update our guess repeatedly with the Newton step $\lambda \longleftarrow \lambda - f(\lambda) / f'(\lambda)$.  But how do we compute $f'(\lambda)$, the derivative of the determinant.  It turns out that there is a simple formula, from the fact that the determinant is the *product* of the eigenvalues:
+We have already learned one possible iterative algorithm for root finding, **Newton's method**.  Given $f(\lambda) = \det(A - \lambda I)$ and an initial guess for $\lambda$, recall that we just update our guess repeatedly with the Newton step $\lambda \longleftarrow \lambda - f(\lambda) / f'(\lambda)$.  But how do we compute $f'(\lambda)$, the derivative of the determinant?  It turns out that there is a simple formula, from the fact that the determinant is the *product* of the eigenvalues:
 
 $$
 f(\lambda) = (\lambda_1 - \lambda) (\lambda_2 - \lambda) (\lambda_3 - \lambda) \cdots (\lambda_n - \lambda)
