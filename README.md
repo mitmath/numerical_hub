@@ -12,7 +12,7 @@ This new MIT course (**Spring 2025**) introduces numerical methods and numerical
 
     *   18.S192/16.S098 — parallel numerical computing: multi-threading and distributed-memory, and trading off computation for parallelism — _may be taken simultaneously_ with other spokes! [Prof. Alan Edelman](https://math.mit.edu/~edelman/).
 
-Taking both the hub and any spoke will count as an 18.3xx class for math majors, similar to 18.330.  Taking both the hub and the PDE spoke will substitute for 16.90. Weekly homework, *no exams*, but spokes will include a final project.
+Taking both the hub and any spoke will count as an 18.3xx class for math majors, similar to 18.330, and as 16.90 for course-16 majors. Weekly homework, *no exams*, but spokes will include a final project.
 
 This repository is for the "hub" course (currently assigned the temporary numbers 18.S190/16.S090).
 
