@@ -10,7 +10,7 @@ This new MIT course (**Spring 2025**) introduces numerical methods and numerical
 
     *   [18.S097/16.S092 — large-scale linear algebra](https://github.com/mitmath/numerical_spoke_linalg): sparse matrices, iterative methods, randomized methods. [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj).
 
-    *   18.S192/16.S093 — parallel numerical computing: multi-threading and distributed-memory, and trading off computation for parallelism — _may be taken simultaneously_ with other spokes! [Prof. Alan Edelman](https://math.mit.edu/~edelman/).
+    *   [18.S192/16.S093 — parallel numerical computing](https://github.com/mitmath/Parallel-Computing-Spoke): multi-threading and distributed-memory, and trading off computation for parallelism — _may be taken simultaneously_ with other spokes! [Prof. Alan Edelman](https://math.mit.edu/~edelman/).
 
 Taking both the hub and any spoke will count as an 18.3xx class for math majors, similar to 18.330, and as 16.90 for course-16 majors. Weekly homework, *no exams*, but spokes will include a final project.
 
