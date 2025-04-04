@@ -6,7 +6,7 @@ This new MIT course (**Spring 2025**) introduces numerical methods and numerical
 
 *   Second half-term: three options for 6-unit “spokes”
 
-    *   18.S191/16.S091 — numerical methods for partial differential equations: finite-difference and finite-volume methods, boundary conditions, accuracy, and stability. [Prof. Qiqi Wang](https://aeroastro.mit.edu/people/qiqi-wang/).
+    *   [18.S191/16.S091 — numerical methods for partial differential equations](https://github.com/Shania99/numerical_spoke_pde): finite-difference and finite-volume methods, boundary conditions, accuracy, and stability. [Prof. Qiqi Wang](https://aeroastro.mit.edu/people/qiqi-wang/).
 
     *   [18.S097/16.S092 — large-scale linear algebra](https://github.com/mitmath/numerical_spoke_linalg): sparse matrices, iterative methods, randomized methods. [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj).
 
