@@ -24,7 +24,7 @@ This repository is for the "hub" course 18.C21/16.C21.
 
 * Homework assignments will require some programming — you can use either **Julia or Python** (your choice; instruction and examples will use a mix of languages).
 
-* Submit your homework *electronically* via [Gradescope on Canvas](TBD) as a *PDF* containing code and results (e.g. from a Jupyter notebook) and a scan of any handwritten solutions.
+* Submit your homework *electronically* via [Gradescope on Canvas](https://canvas.mit.edu/courses/36170) as a *PDF* containing code and results (e.g. from a Jupyter notebook) and a scan of any handwritten solutions.
 
 * **Collaboration policy:** Talk to anyone you want to and read anything you want to, with two caveats: First, make a solid effort to solve a problem on your own before discussing it with classmates or googling. Second, no matter whom you talk to or what you read, write up the solution on your own, without having their answer in front of you (this includes ChatGPT and similar). (You can use [psetpartners.mit.edu](https://psetpartners.mit.edu/) to find problem-set partners.)
 
@@ -32,7 +32,7 @@ This repository is for the "hub" course 18.C21/16.C21.
 
 **Office Hours**: TBD
 
-**Resources**: [Piazza discussion forum](TBD), [math learning center](https://math.mit.edu/learningcenter/), [TSR^2 study/resource room](https://ome.mit.edu/programs/talented-scholars-resource-room-tsr2), [pset partners](https://psetpartners.mit.edu/).
+**Resources**: [Piazza discussion forum](https://piazza.com/mit/spring2026/18c21), [math learning center](https://math.mit.edu/learningcenter/), [TSR^2 study/resource room](https://ome.mit.edu/programs/talented-scholars-resource-room-tsr2), [pset partners](https://psetpartners.mit.edu/).
 
 **Textbook**: No required textbook, but suggestions for further reading will be posted after each lecture.  The book [*Fundamentals of Numerical Computation* (FNC)](https://fncbook.com/) by Driscoll and Braun is **freely available online**, has examples in Julia, Python, and Matlab, and is a valuable resource.  [*Fundamentals of Engineering Numerical Analysis* (FENA)](https://www.cambridge.org/core/books/fundamentals-of-engineering-numerical-analysis/D6B6B75172AD7A5A555DC506FDDA9B99) by Moin is another useful resource ([readable online](https://www-cambridge-org.libproxy.mit.edu/core/books/fundamentals-of-engineering-numerical-analysis/D6B6B75172AD7A5A555DC506FDDA9B99) with MIT certificates).
 
