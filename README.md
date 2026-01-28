@@ -2,11 +2,11 @@
 
 This new MIT course (**Spring 2026**) introduces numerical methods and numerical analysis to a broad audience (assuming 18.03, 18.06, or equivalents, and some programming experience).  It is divided into two 6-unit halves:
 
-*  **18.C21/16.C21** (first half-term “hub”): basic numerical methods, including curve fitting, root finding, numerical differentiation and integration, numerical differential equations, and floating-point arithmetic. Emphasizes the complementary concerns of accuracy and computational cost.  [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj) and [Prof. Qiqi Wang](https://aeroastro.mit.edu/people/qiqi-wang/).
+*  **18.C21/16.C21** (first half-term “hub”): basic numerical methods, including curve fitting, root finding, numerical differentiation and integration, numerical differential equations, and floating-point arithmetic. Emphasizes the complementary concerns of accuracy and computational cost.  [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj) and [Prof. Youssef Marzouk](https://aeroastro.mit.edu/people/youssef-m-marzouk/).
 
 *   Second half-term: two options for 6-unit “spokes”
 
-    *   [18.C21A/16.C21A — numerical methods for partial differential equations](https://github.com/Shania99/numerical_spoke_pde): finite-difference and finite-volume methods, boundary conditions, accuracy, and stability. [Prof. Qiqi Wang](https://aeroastro.mit.edu/people/qiqi-wang/).
+    *   [18.C21A/16.C21A — numerical methods for partial differential equations](https://github.com/Shania99/numerical_spoke_pde): finite-difference and finite-volume methods, boundary conditions, accuracy, and stability. [Prof. Youssef Marzouk](https://aeroastro.mit.edu/people/youssef-m-marzouk/).
 
     *   [18.C21B/16.C21B — large-scale linear algebra](https://github.com/mitmath/numerical_spoke_linalg): sparse matrices, iterative methods, randomized methods. [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj).
 
