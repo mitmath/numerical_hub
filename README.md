@@ -6,7 +6,7 @@ This new MIT course (**Spring 2026**) introduces numerical methods and numerical
 
 *   Second half-term: two options for 6-unit “spokes”
 
-    *   [18.C21A/16.C21A — numerical methods for partial differential equations](https://github.com/Shania99/numerical_spoke_pde): finite-difference and finite-volume methods, boundary conditions, accuracy, and stability. [Prof. Youssef Marzouk](https://aeroastro.mit.edu/people/youssef-m-marzouk/).
+    *   [18.C21A/16.C21A — numerical methods for partial differential equations](https://github.com/Shania99/numerical_spoke_pde): finite-difference, finite-volume, and finite-element methods; boundary conditions, accuracy, and stability. [Prof. Youssef Marzouk](https://aeroastro.mit.edu/people/youssef-m-marzouk/).
 
     *   [18.C21B/16.C21B — large-scale linear algebra](https://github.com/mitmath/numerical_spoke_linalg): sparse matrices, iterative methods, randomized methods. [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj).
 
