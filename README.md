@@ -16,11 +16,11 @@ This repository is for the "hub" course 18.C21/16.C21.
 
 ## 18.C21/16.C21 Syllabus, Spring 2026
 
-**Instructors**: [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj) and [Prof. Youssef Marzouk](https://aeroastro.mit.edu/people/youssef-m-marzouk/).
+**Instructors**: [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj) and [Prof. Youssef Marzouk](https://aeroastro.mit.edu/people/youssef-m-marzouk/).  TAs: [Andrey Bryutkin](https://math.mit.edu/directory/profile.html?pid=2582) and [Rodrigo Arrieta Candia](https://math.mit.edu/directory/profile.html?pid=2409).
 
 **Lectures**: MWF10 in 2-142 (Feb 2 – Mar 30), slides and notes posted below.
 
-**Homework and grading**: 5–6 weekly psets.  One exam, date TBD. For accommodations, speak with [S3](https://studentlife.mit.edu/s3) and have them contact the instructors.   Grade percentages TBD.
+**Homework and grading**: 5 weekly psets, due Wednesdays at midnight (Feb. 11, 18, 25; Mar. 11, 18).  Students will have oral check-ins on 3 psets (randomly selected) where they have to explain their work (pass/fail per problem). One in-class exam, March 6. For accommodations, speak with [S3](https://studentlife.mit.edu/s3) and have them contact the instructors.   Grade percentages 40% psets, 30% check-ins, 30% exam.
 
 * Homework assignments will require some programming — you can use either **Julia or Python** (your choice; instruction and examples will use a mix of languages).
 
@@ -43,7 +43,7 @@ useful study guide.
 
 ## Lecture 1 (Feb 3)
 
-* Overview and syllabus: slides TBD
+* Overview and syllabus: [slides](https://docs.google.com/presentation/d/1n6VT8jQgS0T49lmyQ_89rcplTXAR8zlxU_7c1aMqO9o/edit?usp=sharing)
 * Finite-difference approximations: [Julia notebook and demo](notes/finite-differences.ipynb)
 
 Brief overview of the huge field of numerical methods, and outline of the small portion that this course will cover. Key new concerns in numerical analysis, are (i) performance (traditionally, arithmetic counts, but now memory access often dominates) and (ii) accuracy (both floating-point roundoff errors and also convergence of intrinsic approximations in the algorithms).  In contrast, the more pure, abstract mathematics of continuity is called "analysis", and is mainly concerned with (ii) but not (i): they are happy to prove that limits converge, but don't care too much how *quickly* they converge.  Whereas traditional discrete computer science is concerned with mainly with (i) but not (ii): they care about performance and resource usage, but traditional algorithms like sorting are either right or wrong, never approximate.
