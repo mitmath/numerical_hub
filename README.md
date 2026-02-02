@@ -24,11 +24,9 @@ This repository is for the "hub" course 18.C21/16.C21.
 
 * Homework assignments will require some programming — you can use either **Julia or Python** (your choice; instruction and examples will use a mix of languages).
 
-* Submit your homework *electronically* via [Gradescope on Canvas](https://canvas.mit.edu/courses/36170) as a *PDF* containing code and results (e.g. from a Jupyter notebook) and a scan of any handwritten solutions.
+* Submit your homework *electronically* via [Gradescope on Canvas](https://canvas.mit.edu/courses/36170) as a *PDF* containing code and results (e.g., from a Jupyter notebook) and a scan of any handwritten solutions.
 
 * **Collaboration policy:** Talk to anyone you want to and read anything you want to, with two caveats: First, make a solid effort to solve a problem on your own before discussing it with classmates or googling. Second, no matter whom you talk to or what you read, write up the solution on your own, without having their answer in front of you (this includes ChatGPT and similar). (You can use [psetpartners.mit.edu](https://psetpartners.mit.edu/) to find problem-set partners.)
-
-**Teaching Assistants**: TBD
 
 **Office Hours**: TBD
 
