@@ -10,7 +10,7 @@ This new MIT course (**Spring 2026**) introduces numerical methods and numerical
 
     *   [18.C21B/16.C21B — large-scale linear algebra](https://github.com/mitmath/numerical_spoke_linalg): sparse matrices, iterative methods, randomized methods. [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj).
 
-Taking both the hub and any spoke will count as an 18.3xx class for math majors, similar to 18.330, and as 16.90 for course-16 majors. Weekly homework, *exam* TBD, and spokes will include a final project with an in-class presentation.
+Taking both the hub and any spoke will count as an 18.3xx class for math majors, similar to 18.330, and as 16.90 for AeroAstro majors. Weekly homework, *exam* TBD, and spokes will include a final project with an in-class presentation.
 
 This repository is for the "hub" course 18.C21/16.C21.
 
@@ -18,7 +18,7 @@ This repository is for the "hub" course 18.C21/16.C21.
 
 **Instructors**: [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj) and [Prof. Youssef Marzouk](https://aeroastro.mit.edu/people/youssef-m-marzouk/).  TAs: [Andrey Bryutkin](https://math.mit.edu/directory/profile.html?pid=2582) and [Rodrigo Arrieta Candia](https://math.mit.edu/directory/profile.html?pid=2409).
 
-**Lectures**: MWF10 in 2-142 (Feb 2 – Mar 30), slides and notes posted below.
+**Lectures**: MWF10 in 2-142 (Feb 2 – Mar 20), slides and notes posted below.
 
 **Homework and grading**: 5 weekly psets, due Wednesdays at midnight (Feb. 11, 18, 25; Mar. 11, 18).  Students will have oral check-ins on 3 psets (randomly selected) where they have to explain their work (pass/fail per problem). One in-class exam, March 6. For accommodations, speak with [S3](https://studentlife.mit.edu/s3) and have them contact the instructors.   Grade percentages 40% psets, 30% check-ins, 30% exam.
 
