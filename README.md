@@ -18,9 +18,9 @@ This repository is for the "hub" course 18.C21/16.C21.
 
 **Instructors**: [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj) and [Prof. Youssef Marzouk](https://aeroastro.mit.edu/people/youssef-m-marzouk/).  TAs: [Andrey Bryutkin](https://math.mit.edu/directory/profile.html?pid=2582) and [Rodrigo Arrieta Candia](https://math.mit.edu/directory/profile.html?pid=2409).
 
-**Lectures**: MWF10 in 2-142 (Feb 2 – Mar 20), slides and notes posted below.
+**Lectures**: MWF10 in 2-142 (Feb 2 - Mar 20), slides and notes posted below.
 
-**Homework and grading**: 5 weekly psets, due Wednesdays at midnight (Feb. 11, 18, 25; Mar. 11, 18).  Students will have oral check-ins on 3 psets (randomly selected) where they have to explain their work (pass/fail per problem). One in-class exam, March 6. For accommodations, speak with [S3](https://studentlife.mit.edu/s3) and have them contact the instructors.   Grade percentages 40% psets, 30% check-ins, 30% exam.
+**Homework and grading**: 5 weekly psets, due Wednesdays at midnight (Feb. 11, 18, 25; Mar. 11, 18).  Students will have oral check-ins on 3 psets (randomly selected) where they have to explain their work (pass/fail per problem). One in-class exam, March 6. For accommodations, speak with [S3](https://studentlife.mit.edu/s3) and have them contact the instructors.  Grade percentages: 40% psets, 30% check-ins, 30% exam.
 
 * Homework assignments will require some programming — you can use either **Julia or Python** (your choice; instruction and examples will use a mix of languages).
 
