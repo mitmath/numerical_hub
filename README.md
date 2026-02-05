@@ -54,7 +54,7 @@ As a starting example, considered the the convergence of **finite-difference app
 ## Lecture 2 (Feb 5)
 
 * [Floating-point introduction](notes/Floating-Point-Intro.ipynb)
-* pset 1: to be posted, due Wednesday Feb. 11 at midnight.
+* [pset 1](psets/pset1.ipynb), due Wednesday Feb. 11 at midnight.
 
 One of the most basic sources of computational error is that **computer arithmetic is generally inexact**, leading to [roundoff errors](https://en.wikipedia.org/wiki/Round-off_error).  The reason for this is simple: computers can only work with numbers having a **finite number of digits**, so they **cannot even store** arbitrary real numbers.  Only a _finite subset_ of the real numbers can be represented using a particular number of "bits", and the question becomes _which subset_ to store, how arithmetic on this subset is defined, and how to analyze the errors compared to theoretical exact arithmetic on real numbers.
 
