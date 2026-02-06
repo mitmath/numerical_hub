@@ -66,7 +66,7 @@ Went through some simple definitions and examples in Julia (see notebook above),
 
 ## Lecture 3 (Feb 6)
 
-* Interpolation Julia notebook: to be posted
+* [Julia notebook and demo on piecewise linear interpolation](notes/linear-interpolation.ipynb)
 
 Discussed the important problem of **interpolating** a function $f(x)$ from a set of discrete data points, which shows up in a vast number of real problems and connects to many other areas of numerical methods (e.g. differentiation and integration).  To begin with, considered the simplest algorithm of [piecewise linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) in one dimension, with points $x$ at spacing $\Delta x$, and showed that (for a twice-differentiable function) the error (the difference between the interpolant and the true function) converges as $O(\Delta x^2)$ (second-order convergence).
 
