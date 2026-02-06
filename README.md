@@ -70,7 +70,15 @@ Went through some simple definitions and examples in Julia (see notebook above),
 
 Discussed the important problem of **interpolating** a function $f(x)$ from a set of discrete data points, which shows up in a vast number of real problems and connects to many other areas of numerical methods (e.g. differentiation and integration).  To begin with, considered the simplest algorithm of [piecewise linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) in one dimension, with points $x$ at spacing $\Delta x$, and showed that (for a twice-differentiable function) the error (the difference between the interpolant and the true function) converges as $O(\Delta x^2)$ (second-order convergence).
 
-**Further reading:** [FNC chapter 5](https://fncbook.com/overview-4) and FENA chapter 1.  Piecewise linear interpolation is implemented in Python by [`numpy.interp`](https://numpy.org/doc/stable/reference/generated/numpy.interp.html#numpy.interp), and several other interpolation schemes by [`scipy.interpolate`](https://docs.scipy.org/doc/scipy-1.15.1/tutorial/interpolate.html).  Interpolation packages in Julia include [Interpolations.jl](https://github.com/JuliaMath/Interpolations.jl), [Dierckx.jl (splines)](https://github.com/JuliaMath/Dierckx.jl),  [BasicInterpolators.jl](https://github.com/markmbaum/BasicInterpolators.jl), and [FastChebInterp.jl (high-order polynomials)](https://github.com/JuliaMath/FastChebInterp.jl).
+In particular, we looked at the *maximum* error $\max_{x \in [a,b]} |f(x) - p(x)|$ between the true function $f(x)$ and the interpolant $p(x)$.  This is also called the ["infinity norm"](https://en.wikipedia.org/wiki/Uniform_norm) $\Vert f - p \Vert_{\infty}$ as well as a variety of other names.  (Analogously, for a column vector, the infinity norm is just the [maximum absolute value](https://mathworld.wolfram.com/L-Infinity-Norm.html) of any element.)
+
+An alternative derivation of the convergence rate, using the Taylor series of $f(x)$ on an interval, can also be found in [the 18.C21 notes from spring 2025](https://colab.research.google.com/drive/1NyU48yqYY91h2a6sZZvr1WcFUxCiDZXS?usp=sharing).
+
+Showed some numerical examples of piecewise linear interpolation and the convergence rate (see notebook).
+
+Finally, expressed a piecewise linear interpolant $p(x) = \sum_k f(x_k) H_k(x)$ as a linear combination of ["hat function" or "tent function"](https://en.wikipedia.org/wiki/Triangular_function) basis functions $H_k(x)$ centered at each knot.
+
+**Further reading:** [FNC chapter 5](https://fncbook.com/overview-4) and FENA chapter 1.  Piecewise linear interpolation (among other options) is implemented  in Python by [`numpy.interp`](https://numpy.org/doc/stable/reference/generated/numpy.interp.html#numpy.interp), and several other interpolation schemes by [`scipy.interpolate`](https://docs.scipy.org/doc/scipy-1.15.1/tutorial/interpolate.html).  Interpolation packages in Julia include [Interpolations.jl](https://github.com/JuliaMath/Interpolations.jl) and [BasicInterpolators.jl](https://github.com/markmbaum/BasicInterpolators.jl) (both of which include piecewise-linear options), [Dierckx.jl (splines)](https://github.com/JuliaMath/Dierckx.jl), and [FastChebInterp.jl (high-order polynomials)](https://github.com/JuliaMath/FastChebInterp.jl).
 
 ## Optional Julia Tutorial (Feb 6 @ 5pm in 34-101)
 
