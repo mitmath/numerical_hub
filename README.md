@@ -28,7 +28,7 @@ This repository is for the "hub" course 18.C21/16.C21.
 
 * **Collaboration policy:** Talk to anyone you want to and read anything you want to, with two caveats: First, make a solid effort to solve a problem on your own before discussing it with classmates or googling. Second, no matter whom you talk to or what you read, write up the solution on your own, without having their answer in front of you (this includes ChatGPT and similar). (You can use [psetpartners.mit.edu](https://psetpartners.mit.edu/) to find problem-set partners.)
 
-**Office Hours**: TBD
+**Office Hours**: Prof. Johnson: Wednesdays at 3pm in 2-345.  Prof. Marzouk: TBD.
 
 **Resources**: [Piazza discussion forum](https://piazza.com/mit/spring2026/18c21), [math learning center](https://math.mit.edu/learningcenter/), [TSR^2 study/resource room](https://ome.mit.edu/programs/talented-scholars-resource-room-tsr2), [pset partners](https://psetpartners.mit.edu/).
 
