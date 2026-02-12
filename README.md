@@ -111,7 +111,7 @@ If you address both of these problems, high-degree polynomial approximation can 
 
 * polynomial interpolation notebook from lecture 4 ([above](polynomial-interpolation.ipynb)).
 * [handwritten condition # notes](https://www.dropbox.com/scl/fi/m691ghxq38a6lnoayrfxz/Condition-Numbers.pdf?rlkey=3x45kla27gcve0l2qv0d76sxi&st=i7kdwkps&dl=0)
-* pset 1 solutions: coming soon
+* [pset 1 solutions](psets/pset1sol.ipynb)
 * pset 2: coming soon
 
 Began by talking about problem (2) from the lecture-4 summary above: even with "good" non-equispaced points, it turns out that the Vandermonde matrix becomes nearly singular for large degree $n$, causing roundoff errors to explode.  We can see this numerically in the notebook (linked above).  (The problem is that monomials are a bad basis for high-degree polynomials.)  How can we begin to quantify this phenomenon?
