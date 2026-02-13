@@ -139,7 +139,7 @@ For example, we can now explain why the monomial basis was so bad: it is easy to
 
 ## Lecture 6 (Feb 13_
 
-* Julia notebook: to be posted
+* lecture notes and computational examples [notebook](notes/least-squares.ipynb)
 
 Introduced the topic of least-square fitting of data to curves.  As long as the fitting function is linear in the unknown coefficients c (e.g. a polynomial, or some other linear combination of basis functions), showed that minimizing the sum of the squares of the errors corresponds to minimizing the norm of the residual, i.e. the "loss function" L(c) = ‖Ac - y‖², where $A$ is a "tall" matrix whose *rows* correspond to the data points and whose *columns* correspond to the basis functions.  (This is an *overdetermined* linear system because there are more equations than unknowns: we have too few parameters to make the curve go through all the data points in general, unlike interpolation.)
 
