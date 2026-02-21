@@ -176,7 +176,7 @@ The computational scaling becomes even more important when you go to higher dime
 
 * Quadrature: [Notes](https://math.mit.edu/~stevenj/trap-iap-2011.pdf) on error analysis of the trapezoidal rule and Clenshaw-Curtis quadrature in terms of Fourier cosine series, and a [quick review of cosine series](http://math.mit.edu/~stevenj/cosines.pdf).
 * [pset 2 solutions](psets/pset2sol.ipynb)
-* pset 3: coming soon
+* [pset 3](psets/pset3.ipynb): due **Thursday** (not Wed) Feb 26 at midnight
 
 Launched into a new topic: [Numerical integration ("quadrature")](https://en.wikipedia.org/wiki/Numerical_integration).   In general, a "quadrature rule" is a scheme for estimating a definite integral ∫f(x)dx by a sum ∑ₖf(xₖ)wₖ of f(x) evaluated at N (or N+1) quadrature points xₖ with quadrature weights wₖ.   The goal is to choose these quadrature points and weights so that the estimate converges to the true integral as quickly as possible with N.  (The typical assumption is that evaluating f(x) is the dominant computational cost, so we want to minimize function evaluations.)  Quadrature is closely related to interpolation: most quadrature schemes (especially in 1d) proceed by picking points, interpolating the function between the points somehow (usually by polynomials), and then integrating the interpolant (which is easy with polynomials).
 
