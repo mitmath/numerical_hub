@@ -198,3 +198,12 @@ Moreover, showed how we can arrange for this fast convergence to occur all the t
 Finally, if we change variables back to $x$, we see that the cosine series for $f(\cos \theta)$ is precisely an expansion in [Chebyshev polynomials](https://en.wikipedia.org/wiki/Chebyshev_polynomials) $T_k(x) = \cos(k \cos^{-1} x)$, which are now revealed to be a Fourier cosine series in disguise.  This is why Chebyshev polynomials are so nicely behaved (they inherit all the nice properties of the cosine basis, but work for non-periodic functions thanks to the change of variables) and is why Chebyshev points $\cos(n\pi/N)$ were so important (they correspond to equally spaced angles for the cosine series).   In fact, Clenshaw–Curtis quadrature is exactly equivalent to evaluating the integrand at Chebyshev points, interpolating it with a polynomial, and integrating the polynomial interpolant.
 
 **Further reading:**: See further reading for lecture 8, and for lecture 4 on Chebyshev polynomials.
+
+## Lecture 10 (Feb 23): SNOW DAY
+
+* pre-recorded [lecture video (MIT only)](https://mit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5c256f1d-33e4-4c10-b834-b27700041e44) from Spring 2025.
+* [quadrature overview slides](https://docs.google.com/presentation/d/1jN49UvkUHpKLPW7gfKFQgiajNAl82x4nnAcMcXGERFQ/edit?usp=sharing): now that we've analyzed trapezoidal rule and Clenshaw–Curtis, let's zoom out to survey the bigger picture
+
+Overview of the big picture of quadrature algorithms: Clenshaw–Curtis is not the end!
+
+**Further reading):**: See further reading for lecture 8.  There are *many, many* more sources on numerical integration, and so many methods that even whole books leave out many topics.  For example, this review by [Bailey and Borwein (2011)](https://www.sciencedirect.com/science/article/pii/S0747717110001409) talks about high-precision (arbitrary precision) quadrature.  The book [*Methods of Numerical Integration*](https://shop.elsevier.com/books/methods-of-numerical-integration/davis/978-0-12-206360-2) is somewhat older but still a classic.
