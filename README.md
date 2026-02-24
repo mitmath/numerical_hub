@@ -10,7 +10,7 @@ This new MIT course (**Spring 2026**) introduces numerical methods and numerical
 
     *   [18.C21B/16.C21B — large-scale linear algebra](https://github.com/mitmath/numerical_spoke_linalg): sparse matrices, iterative methods, randomized methods. [Prof. Steven G. Johnson](http://math.mit.edu/~stevenj).
 
-Taking both the hub and any spoke will count as an 18.3xx class for math majors, similar to 18.330, and as 16.90 for AeroAstro majors. Weekly homework, *exam* TBD, and spokes will include a final project with an in-class presentation.
+Taking both the hub and any spoke will count as an 18.3xx class for math majors, similar to 18.330, and as 16.90 for AeroAstro majors. Weekly homework, *exam* March 6, and spokes will include a final project with an in-class presentation.
 
 This repository is for the "hub" course 18.C21/16.C21.
 
