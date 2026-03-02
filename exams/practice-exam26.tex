@@ -37,9 +37,17 @@
 \newcommand{\sol}[1]{{\color{red} \textbf{Solution: } #1}}
 \fi
 
+\ifx\solutions\undefined
+\newcommand{\newexampage}{\newpage}
+\else
+\newcommand{\newexampage}{}
+\fi
 
-
-
+\ifx\solutions\undefined
+\newcommand{\examvfill}{\vfill}
+\else
+\newcommand{\examvfill}{}
+\fi
 
 
 \tikzset{newstyle/.style={thick}}
@@ -93,7 +101,7 @@ Spring 2026 (Johnson \& Marzouk)
 
 \item You will have \textbf{50 minutes} after your exam begins.
 
-\item Write your \textbf{NAME} above \emph{and} at the top of \emph{every} page. Please do it as soon as you begin the exam, and check again before returning it. 
+\item Write your \textbf{NAME} above \emph{and} at the top of \emph{every} page. Please do it as soon as you begin the exam, and check again before returning it.
 
 \item Only write on \emph{one} side of each sheet.  Additional paper will be provided upon request.
 
@@ -125,11 +133,24 @@ Explain why, for accuracy reasons (ignoring performance), this function should \
 \item Outline (as pseudo-code) the steps of an modified algorithm to compute the same function without the catastrophes identified in the previous part.  (Hint: factor something out of the sum, and remember the identity $\log(ab) = \log a+\log b$.)
 \end{enumerate}
 
-\sol{Answer 1.
-}
-\vfill
+\sol{
+\begin{enumerate}
+    \item If $\max_i x_i$ is $\gg 1$, then $e^x$ will \textbf{overflow} to \texttt{Inf}, the sum will give \texttt{Inf}, and then the $\log$ will give \texttt{Inf}.  Conversely, if $\max_i x_i$ is $\ll -1$, then evern $e^{x_i}$ will \textbf{underflow} to \texttt{0.0}, the sum will be zero, and $\log$ will either throw an exception or give \texttt{-Inf}, depending on the programming language.  In either case you get nothing useful.
 
-\newpage
+    \item Let $x_k = \arg\max_i x_i$.  Then simply factor this out of the sum
+    \begin{align*}
+    \operatorname{logsumexp}(x) &= \log\left(e^{x_k}\sum_{i=1}^n e^{x_i-x_k} \right) \\
+    &= \log(e^{x_k}) + \log\left(\sum_{i=1}^n e^{x_i-x_k} \right) \\
+    &= x_k + \log\left(1 + \sum_{i\ne k} \underbrace{e^{x_i-x_k}}_{< 1} \right) \, .
+    \end{align*}
+    This eliminates the over/underflow by taking out the biggest term $x_k$, and the remaining $\log$ term will be of an argument that is $\ge 1$ but not particularly large, so it won't risk overflow.
+
+    \textit{Remark:} We can also use the \texttt{log1p} function provided by many numerical libraries, which computes $\operatorname{log1p}(x) = \log(1+x)$ accurately for small $x$, to evaluate the second log term even more accurately when the sum is very small, but that is a separate and much milder issue than the catastrophic over/underflow.
+\end{enumerate}
+}
+\examvfill
+
+\newexampage
 $\mbox{}$
 \newpage
 
@@ -148,23 +169,42 @@ The ``error'' function $\operatorname{erf}(x) = \frac{2}{\sqrt \pi}\int_0^x e^{-
     \item The same libraries \emph{also} provide a function $\operatorname{erfc}(x) = 1 - \operatorname{erf}(x)$, the ``complementary error function.''  Why?  Aren't $\operatorname{erf}$ and $\operatorname{erfc}$ redundant?  What information would you potentially lose if you simply subtract $\operatorname{erf}$ from $1$ yourself?  Conversely, given $\operatorname{erfc}$, why do you still need $\operatorname{erf}$ if you want don't want to lose information for some inputs, rather than using $\operatorname{erf}(x) = 1 - \operatorname{erfc}(x)$?
 
 
-    \newpage
+    \newexampage
 
     \item For large $x \gg 1$, the error function is approximately $\operatorname{erf}(x) \approx 1 - e^{-x^2} / (x\sqrt{\pi})$.  Use this to compute the relative condition number $\kappa_r(\operatorname{erfc}, x)$ for large $x \gg 1$.  And by inspection of the plot (of $\operatorname{erf}$), what is the relative condition number of $\operatorname{erfc}$ (not $\operatorname{erf}$) as $x \to 0$?
-    
-    \textit{Comment:} These results explain why there should be an algorithm to compute $\operatorname{erfc}$ accurately when $\operatorname{erf}(x)$ is close to $1$, despite the problem you identified with the naive formula in the previous part.   
-    
-    (Recall that for any differentiable scalar function $f(x)$, $\kappa_r(f, x) = |f'(x)|\frac{|x|}{|f(x)|}$.  Also recall the fundamental theorem of calculus, saying that the derivative is the inverse of integration: $(\int^x g(t)\, dt)' = g(x)$.)
-    \vfill
 
-    \item $\operatorname{erf}$ is the integral of a smooth function $e^{-t^2}$, so you can compute it yourself for any given $x$ very accurately with quadrature schemes like Clenshaw--Curtis (with errors that decrease at least exponentially fast with the number of quadrature points $t$).   However, if we wanted to evaluate the function $\operatorname{erf}(x)$ for many different $x$ values (and let's pretend you don't have a library function like \texttt{scipy.special.erf} available), say for $x \in [-10,10]$, outline (as a sequence of steps) how you might construct an approximation $a(x)$ for $\operatorname{erf}(x)$ on $[-10,10]$ such that (after the construction) the resulting $a(x)$ can then be evaluated quickly and accurately (to, say, at least 10 digits) for any given value of $x$, probably more quickly than re-doing quadrature for each $x$? 
+    \textit{Comment:} These results explain why there should be an algorithm to compute $\operatorname{erfc}$ accurately when $\operatorname{erf}(x)$ is close to $1$, despite the problem you identified with the naive formula in the previous part.
+
+    (Recall that for any differentiable scalar function $f(x)$, $\kappa_r(f, x) = |f'(x)|\frac{|x|}{|f(x)|}$.  Also recall the fundamental theorem of calculus, saying that the derivative is the inverse of integration: $(\int^x g(t)\, dt)' = g(x)$.)
+    \examvfill
+
+    \item $\operatorname{erf}$ is the integral of a smooth function $e^{-t^2}$, so you can compute it yourself for any given $x$ very accurately with quadrature schemes like Clenshaw--Curtis (with errors that decrease at least exponentially fast with the number of quadrature points $t$).   However, if we wanted to evaluate the function $\operatorname{erf}(x)$ for many different $x$ values (and let's pretend you don't have a library function like \texttt{scipy.special.erf} available), say for $x \in [-10,10]$, outline (as a sequence of steps) how you might construct an approximation $a(x)$ for $\operatorname{erf}(x)$ on $[-10,10]$ such that (after the construction) the resulting $a(x)$ can then be evaluated quickly and accurately (to, say, at least 10 digits) for any given value of $x$, probably more quickly than re-doing quadrature for each $x$?
 \end{enumerate}
 
 
-\sol{Answer 2.
+\sol{
+
+\begin{enumerate}
+    \item The problem is that as $\operatorname{erf}(x) \to 1$, naively computing $1 - \operatorname{erf}(x)$ in floating-point arithmetic experiences catastrophic cancellation---we eventually lose \emph{all} significant digits and just get \texttt{0.0} instead of a very small number.  Conversely as $x \to 0$, we get $\operatorname{erf}(x) \to 0 \implies \operatorname{erfc}(x) \to 1$.  This means that naively computing $1 - \operatorname{erfc}(x)$ would again lose \emph{all} significant digits for $0 < |x| \ll 1$ and just give \texttt{0.0}, rather than a very small number.   So, we need a separate $\operatorname{erfc}$ if we want to know how close $\operatorname{erf}$ gets to $1$ for $x \gg 1$, while we need a separate $\operatorname{erf}$ if we want to know how small $\operatorname{erf}$ is for small $|x|$.  We need both functions.
+
+    \item From the fundamental theorem of calculus, $\operatorname{erf}'(x) = \frac{2}{\sqrt{\pi}} e^{-x^2}$ (exactly!) and hence $\operatorname{erfc}'(x) = -\operatorname{erf}'(x) = -\frac{2}{\sqrt{\pi}} e^{-x^2}$.   Furthermore, from the asymptotic formula given, we have $\operatorname{erfc}(x) \approx e^{-x^2} / (x\sqrt{\pi})$ for $x \gg 1$.  Hence, plugging it in to the relative condition number formula, we get:
+    $$
+    \kappa_r(\operatorname{erfc}, x) = |\operatorname{erfc}'(x)|\frac{|x|}{|\operatorname{erfc}(x)|} \approx 2x^2 \qquad\text{ for }x \gg 1
+    $$
+    which grows with $x$ but at least is not exponential!
+
+    Conversely, as $x \to 0$, we can see from the plot that $\operatorname{erf}'(x)=-\operatorname{erfc}'(x)$ just goes to some nonzero constant, while $\operatorname{erfc}(x) = 1 - \operatorname{erf}(x) \to 1$.  Hence
+    $$
+    \kappa_r(\operatorname{erfc}, x) = |\operatorname{erfc}'(x)|\frac{|x|}{|\operatorname{erfc}(x)|} \to 0 \qquad\text{ for }x \to 0 \,
+    $$
+    because  $|x| \to 0$ in the numerator and the other terms go to nonzero values.
+
+    \item One solution is simply to evaluate $\operatorname{erf}(x)$ at Chebyshev points on $x\in[-10,10]$, construct a polynomial interpolant $a(x)$ (e.g.~via the barycentric formula), and then use that.  Then to evaluate it at any $x$ we only need to evaluate the polynomial (which should be of fairly low degree since $\operatorname{erf}$ is smooth and hence polynomial approximation converges exponentially fast), faster than evaluating $e^{-t^2}$ at a bunch of quadrature points
+
+\end{enumerate}
 
 }
-\vfill
+\examvfill
 
 
 \newpage
@@ -173,7 +213,7 @@ The ``error'' function $\operatorname{erf}(x) = \frac{2}{\sqrt \pi}\int_0^x e^{-
 
 \section*{Problem 3}
 
-In Fig.~\ref{convergence}(left) are shown three functions $f_1(x)$, $f_2(x)$, and $f_3(x)$ on $x\in[0,1]$.  On the right are shown the convergence of Clenshaw--Curtis quadrature to compute $\int_0^1 f_i(x)\,dx$ for $n+1$ point versus $n$ for these three functions, labeled $A,B,C$, but we do \emph{not} tell you which of $f_1,f_2,f_3$ are referred to by $A,B,C$.
+In Fig.~\ref{fig:convergence}(left) are shown three functions $f_1(x)$, $f_2(x)$, and $f_3(x)$ on $x\in[0,1]$.  On the right are shown the convergence of Clenshaw--Curtis quadrature to compute $\int_0^1 f_i(x)\,dx$ for $n+1$ point versus $n$ for these three functions, labeled $A,B,C$, but we do \emph{not} tell you which of $f_1,f_2,f_3$ are referred to by $A,B,C$.
 
 
 \begin{figure}[b!]
@@ -185,21 +225,22 @@ In Fig.~\ref{convergence}(left) are shown three functions $f_1(x)$, $f_2(x)$, an
 
 
 \begin{enumerate}
-\item Which function in Fig.~\ref{convergence}(left) correspond to which convergence curve in Fig.~\ref{convergence}(right), and why?  Give a few words of justification, no formal analysis required.
-\vfill
-\item For the two functions that are converging slowly in Fig.~\ref{convergence}(right), explain how you might modify your integration algorithm (given a function that does Clenshaw--Curtis quadrature on any desired interval $[a,b]$ for any $n$) to get fast convergence for these two cases. 
-\vfill
+\item Which function in Fig.~\ref{fig:convergence}(left) correspond to which convergence curve in Fig.~\ref{fig:convergence}(right), and why?  Give a few words of justification, no formal analysis required.
+\examvfill
+\item For the two functions that are converging slowly in Fig.~\ref{fig:convergence}(right), explain how you might modify your integration algorithm (given a function that does Clenshaw--Curtis quadrature on any desired interval $[a,b]$ for any $n$) to get fast convergence for these two cases.
+\examvfill
 \end{enumerate}
 
 \sol{
 \begin{enumerate}
-\item answer 1
-\item answer 2
+\item From class, Clenshaw--Curtis is equivalent to a trapezoidal rule with a change of variables, and hence converges like a cosine series, and that the rate of convergence of a cosine series depends on how many derivatives are smooth.   So the fastest convergence, convergence~B, should correspond to $f_1$, which looks nice and smooth; the next-fastest convergence~A should correspond to $f_2$ which has what looks like a discontinuous slope (a ``kink'') at $x = 0.75$; the slowest convergence~C should correspond to $f_3$, which has a discontinuity, the most severe non-smoothness, at $x = 0.5$.
+
+\item Simply break the integral into two smooth pieces.  For $f_2$ you would compute $\int_0^1 f_2(x)dx = \int_0^{0.75} f_2(x)dx + \int_{0.75}^1 f_2(x)dx$, where each piece uses Clenshaw--Curtis separately.  Similarly, for $f_3$ you would split the integral at $x = 0.5$.  In both cases you would then have two smooth pieces with $\approx n/2$ points each (say), each of which gives quadrature that converges exponentially with $n/2$, and hence an overall error that converges exponentially with $n$ (similar to convergence~B for $f_1$).
 \end{enumerate}
 }
 \newpage
 $\mbox{}$
-\newpage
+\newexampage
 
 %%%%%%%%%%%%%%%
 \section*{Problem 4}
@@ -214,7 +255,19 @@ $$
 $$
 similar to how we derived the trapezoidal rule in class.  \textbf{Give the weights} $w_1,w_2,w_3$.  (This is called ``Simpson's rule.'')
 
-\sol{Answer 4.
+\sol{We can estimate the integral by the integral of $q(x)$, just as for the trapezoidal rule we estimated the integral by integrating a piecewise-linear interpolant.  So, the three weights are just the integrals of the coefficients:
+$$
+w_2 = -\frac{1}{\Delta x^2}\int_{-\Delta x}^{+\Delta x} (x^2 - \Delta x^2) dx = -\frac{1}{\Delta x^2} \left. \left( \frac{x^3}{3}  - x\Delta x^2\right) \right|_{-\Delta x}^{+\Delta x} = \boxed{\frac{4}{3}\Delta x} \, ,
+$$
+along with
+$$
+w_3 = \frac{1}{2\Delta x^2}\int_{-\Delta x}^{+\Delta x} (x^2 + x\Delta x) dx = \frac{1}{2\Delta x^2} \left. \left( \frac{x^3}{3}  + \frac{x^2}{2}\Delta x^2 \right) \right|_{-\Delta x}^{+\Delta x} = \boxed{\frac{1}{3}\Delta x} \, ,
+$$
+with
+$$
+w_1 = \boxed{w_2}
+$$
+by symmetry (the two integrands are mirror images).
 }
 
 \newpage
@@ -228,7 +281,7 @@ Suppose that we have 100 measurements $(p_{k},v_{k})$ of the volume $v$ of a gas
 
 \sol{This is a least-square problem, so the answer is
 to solve the normal equations $\boxed{A^{T}Ac=A^{T}b}$ for $c=\left(\begin{array}{cc}
-c_{1} & c_{2}\end{array}\right)^{T}$ where 
+c_{1} & c_{2}\end{array}\right)^{T}$ where
 \[
 \boxed{A=\left(\begin{array}{cc}
 \frac{1}{p_{1}} & 1\\
@@ -247,7 +300,7 @@ v(p_{1})\\
 v(p_{2})\\
 \vdots\\
 v(p_{100})
-\end{array}\right)$ and $b$ are the data we are fitting to, so that $\sum_{k}[v(p_{k})-v_{k}]^{2}=\Vert Ac-b\Vert^{2}$. 
+\end{array}\right)$ and $b$ are the data we are fitting to, so that $\sum_{k}[v(p_{k})-v_{k}]^{2}=\Vert Ac-b\Vert^{2}$.
 }
 
 \end{document}
