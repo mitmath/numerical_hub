@@ -228,7 +228,7 @@ Another interesting question is to find *all* the real roots of some scalar func
 ## Lecture 12 (Feb 27):
 
 * [pset 3 solutions](psets/pset3sol.ipynb)
-* practice exam questions: to be posted
+* [practice exam questions](exam/practice-exam26.pdf) to be posted; solutions to follow
 
 The big picture of numerical linear algebra: amateurs think mostly about element-by-element algorithms oriented towards hand calculations, whereas practitioners think mostly in terms of **factorizations** (which give the *results* of these algorithms in terms of a product of simpler matrices, which allow use to re-use and reason about them):
 
