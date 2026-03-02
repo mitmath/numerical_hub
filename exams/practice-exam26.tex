@@ -29,7 +29,7 @@
 
 
 % Uncomment next line to compile with solutions
-%\def\solutions{1}
+% \def\solutions{1}
 
 \ifx\solutions\undefined
 \newcommand{\sol}[1]{}
@@ -101,7 +101,7 @@ Spring 2026 (Johnson \& Marzouk)
 
 \item You will have \textbf{50 minutes} after your exam begins.
 
-\item Write your \textbf{NAME} above \emph{and} at the top of \emph{every} page. Please do it as soon as you begin the exam, and check again before returning it.
+\item Write your \textbf{NAME} above \emph{and} at the top of \emph{every} page. Please do it as soon as you begin the exam, and check again before returning it. 
 
 \item Only write on \emph{one} side of each sheet.  Additional paper will be provided upon request.
 
@@ -172,13 +172,13 @@ The ``error'' function $\operatorname{erf}(x) = \frac{2}{\sqrt \pi}\int_0^x e^{-
     \newexampage
 
     \item For large $x \gg 1$, the error function is approximately $\operatorname{erf}(x) \approx 1 - e^{-x^2} / (x\sqrt{\pi})$.  Use this to compute the relative condition number $\kappa_r(\operatorname{erfc}, x)$ for large $x \gg 1$.  And by inspection of the plot (of $\operatorname{erf}$), what is the relative condition number of $\operatorname{erfc}$ (not $\operatorname{erf}$) as $x \to 0$?
-
-    \textit{Comment:} These results explain why there should be an algorithm to compute $\operatorname{erfc}$ accurately when $\operatorname{erf}(x)$ is close to $1$, despite the problem you identified with the naive formula in the previous part.
-
+    
+    \textit{Comment:} These results explain why there should be an algorithm to compute $\operatorname{erfc}$ accurately when $\operatorname{erf}(x)$ is close to $1$, despite the problem you identified with the naive formula in the previous part.   
+    
     (Recall that for any differentiable scalar function $f(x)$, $\kappa_r(f, x) = |f'(x)|\frac{|x|}{|f(x)|}$.  Also recall the fundamental theorem of calculus, saying that the derivative is the inverse of integration: $(\int^x g(t)\, dt)' = g(x)$.)
     \examvfill
 
-    \item $\operatorname{erf}$ is the integral of a smooth function $e^{-t^2}$, so you can compute it yourself for any given $x$ very accurately with quadrature schemes like Clenshaw--Curtis (with errors that decrease at least exponentially fast with the number of quadrature points $t$).   However, if we wanted to evaluate the function $\operatorname{erf}(x)$ for many different $x$ values (and let's pretend you don't have a library function like \texttt{scipy.special.erf} available), say for $x \in [-10,10]$, outline (as a sequence of steps) how you might construct an approximation $a(x)$ for $\operatorname{erf}(x)$ on $[-10,10]$ such that (after the construction) the resulting $a(x)$ can then be evaluated quickly and accurately (to, say, at least 10 digits) for any given value of $x$, probably more quickly than re-doing quadrature for each $x$?
+    \item $\operatorname{erf}$ is the integral of a smooth function $e^{-t^2}$, so you can compute it yourself for any given $x$ very accurately with quadrature schemes like Clenshaw--Curtis (with errors that decrease at least exponentially fast with the number of quadrature points $t$).   However, if we wanted to evaluate the function $\operatorname{erf}(x)$ for many different $x$ values (and let's pretend you don't have a library function like \texttt{scipy.special.erf} available), say for $x \in [-10,10]$, outline (as a sequence of steps) how you might construct an approximation $a(x)$ for $\operatorname{erf}(x)$ on $[-10,10]$ such that (after the construction) the resulting $a(x)$ can then be evaluated quickly and accurately (to, say, at least 10 digits) for any given value of $x$, probably more quickly than re-doing quadrature for each $x$? 
 \end{enumerate}
 
 
@@ -195,12 +195,12 @@ The ``error'' function $\operatorname{erf}(x) = \frac{2}{\sqrt \pi}\int_0^x e^{-
 
     Conversely, as $x \to 0$, we can see from the plot that $\operatorname{erf}'(x)=-\operatorname{erfc}'(x)$ just goes to some nonzero constant, while $\operatorname{erfc}(x) = 1 - \operatorname{erf}(x) \to 1$.  Hence
     $$
-    \kappa_r(\operatorname{erfc}, x) = |\operatorname{erfc}'(x)|\frac{|x|}{|\operatorname{erfc}(x)|} \to 0 \qquad\text{ for }x \to 0 \,
+    \kappa_r(\operatorname{erfc}, x) = |\operatorname{erfc}'(x)|\frac{|x|}{|\operatorname{erfc}(x)|} \to 0 \qquad\text{ for }x \to 0 \, 
     $$
     because  $|x| \to 0$ in the numerator and the other terms go to nonzero values.
 
     \item One solution is simply to evaluate $\operatorname{erf}(x)$ at Chebyshev points on $x\in[-10,10]$, construct a polynomial interpolant $a(x)$ (e.g.~via the barycentric formula), and then use that.  Then to evaluate it at any $x$ we only need to evaluate the polynomial (which should be of fairly low degree since $\operatorname{erf}$ is smooth and hence polynomial approximation converges exponentially fast), faster than evaluating $e^{-t^2}$ at a bunch of quadrature points
-
+    
 \end{enumerate}
 
 }
@@ -227,7 +227,7 @@ In Fig.~\ref{fig:convergence}(left) are shown three functions $f_1(x)$, $f_2(x)$
 \begin{enumerate}
 \item Which function in Fig.~\ref{fig:convergence}(left) correspond to which convergence curve in Fig.~\ref{fig:convergence}(right), and why?  Give a few words of justification, no formal analysis required.
 \examvfill
-\item For the two functions that are converging slowly in Fig.~\ref{fig:convergence}(right), explain how you might modify your integration algorithm (given a function that does Clenshaw--Curtis quadrature on any desired interval $[a,b]$ for any $n$) to get fast convergence for these two cases.
+\item For the two functions that are converging slowly in Fig.~\ref{fig:convergence}(right), explain how you might modify your integration algorithm (given a function that does Clenshaw--Curtis quadrature on any desired interval $[a,b]$ for any $n$) to get fast convergence for these two cases. 
 \examvfill
 \end{enumerate}
 
@@ -281,7 +281,7 @@ Suppose that we have 100 measurements $(p_{k},v_{k})$ of the volume $v$ of a gas
 
 \sol{This is a least-square problem, so the answer is
 to solve the normal equations $\boxed{A^{T}Ac=A^{T}b}$ for $c=\left(\begin{array}{cc}
-c_{1} & c_{2}\end{array}\right)^{T}$ where
+c_{1} & c_{2}\end{array}\right)^{T}$ where 
 \[
 \boxed{A=\left(\begin{array}{cc}
 \frac{1}{p_{1}} & 1\\
@@ -300,7 +300,40 @@ v(p_{1})\\
 v(p_{2})\\
 \vdots\\
 v(p_{100})
-\end{array}\right)$ and $b$ are the data we are fitting to, so that $\sum_{k}[v(p_{k})-v_{k}]^{2}=\Vert Ac-b\Vert^{2}$.
+\end{array}\right)$ and $b$ are the data we are fitting to, so that $\sum_{k}[v(p_{k})-v_{k}]^{2}=\Vert Ac-b\Vert^{2}$. 
+}
+
+\newpage
+\section*{Problem 6}
+
+\newcommand{\sinc}{\operatorname{sinc}}
+\newcommand{\cosc}{\operatorname{cosc}}
+
+The $\sinc(x)$ function is defined by 
+$\sinc(x) = \frac{\sin(\pi x)}{\pi x}$
+and shows up in many important applications in signal-processing and elsewhere.  It is plotted in Fig.~\ref{fig:sinc-extrema}, below, along with the numerator $\sin(\pi x)$ for comparison.
+
+\begin{figure}[b!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{sinc-extrema.pdf}
+    \caption{Plot of $\sinc(x)$, along with its numerator $\sin(\pi x)$.  Extrema of the sinc function are indicated by labelled black dots.}
+    \label{fig:sinc-extrema}
+\end{figure}
+
+While the $\sin(\pi x)$ function has extrema (minima/maxima) at $x = 0.5, 1.5, 2.5, \ldots$, the extrema of the $\sinc$ function are slightly shifted---for example, the first minimum, and in fact the global minimum, of $\sinc$ is at $x \approx 1.43$, shown by a black dot in the figure.
+
+Outline the steps of an efficient algorithm to rapidly compute $\min_x \sinc(x) \approx \sinc(1.43)$ to very high accuracy (say, more than 12 digits), making use (somehow) of Newton steps (recall: to solve $f(x) = 0$ we take steps $x \to x - f'(x)^{-1} f(x)$).
+
+\sol{
+Extrema occur when $\sinc'(x) = 0$, for which the Newton steps are:
+$$
+\boxed{x_{k+1} = x_k - \frac{\sinc'(x_k)}{\sinc''(x_k)}} \, ,
+$$
+starting at a good guess, say the $x_1 = 1.43$ value provided by the problem.  Or, if we didn't know that approximation, we could simply use $x_1 = 1.5$ from the first minimum of $\sin(\pi x)$.
+
+If we do this numerically to arbitrary precision (which obviously you cannot do on an exam!), we find that iterating from $x_1 = 1.43$ we have obtain $x_2 = \mathbf{1.430296}59167\ldots$, $x_3 = \mathbf{1.43029665312420}01\ldots$, $x_4 = \mathbf{1.43029665312420275777219844545}3675\ldots$, and so forth, where the correct digits are shown in bold.  So we obtain 15 significant digits with $x_3$, in only two steps, thanks to the quadratic convergence of Newton!
+
+The necessary derivatives can be easily computed analytically: $\boxed{\sinc'(x) = \cos(\pi x)/x - \sinc(x)/x}$ (called ``$\cosc(x)$'' in Julia) and $\boxed{\sinc''(x) = -\pi^2 \sinc(x) - 2\cos(\pi x)/x^2 + 2\sinc(x)/x^2}$.
 }
 
 \end{document}
