@@ -303,6 +303,6 @@ There are many eigenvalue algorithms.  But for general "dense" matrices, the mos
 
 # Exam (Mar 5)
 
-* to be posted.
+* [exam](exams/exam26.pdf) and [solutions](exams/exam26-sol.pdf)
 
 This is a "1 hour" (10:05 to 10:55) exam, held in-class.  You may bring one page of notes.  See also the information on the practice exam, posted above.
