@@ -279,7 +279,7 @@ Gram–Schmidt works by turning $A$ into $\hat{Q}$.  The popular **Householder Q
 
 ## Lecture 14 (Mar 4)
 
-* pset 4: coming soon.
+* [pset 4](psets/pset4.ipynb): due Wednesday, March 11 at midnight.
 
 Numerical methods for eigenvalue problems $Ax = \lambda x$ with an $n \times n$ matrix $A$, or equivalently for diagonalization $A = X \Lambda X^{-1}$.
 
