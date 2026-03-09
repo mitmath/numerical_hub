@@ -330,7 +330,7 @@ with $\text{Re}$ being the dimensionless [Reynolds number](https://en.wikipedia.
 ```math
 \text{Re} = \frac{2a \rho}{\mu} u
 ```
-for an air viscosity $\mu$.   Given all of these parameters ($m, \rho, a, \mu$), we have an $f(u)$ that is a relatively simple function of $u$: roughly proportional to $u$ for small velocity $u$ ([laminar flow](https://en.wikipedia.org/wiki/Laminar_flow)), and proportional to $u^2$ for large velocity ([turbulent](https://en.wikipedia.org/wiki/Turbulence) flow).  (ODEs get *much* more complicated than this!)  But we still probably can't solve it in closed form.
+for an air viscosity $\mu$.   Given all of these parameters ($m, \rho, a, \mu$), we have an $f(u)$ that is a relatively simple function of $u$: the drag force (second term in $f$) is roughly proportional to $u$ for small velocity $u$ ([laminar flow](https://en.wikipedia.org/wiki/Laminar_flow)), and proportional to $u^2$ for large velocity ([turbulent](https://en.wikipedia.org/wiki/Turbulence) flow).  (ODEs get *much* more complicated than this!)  But we still probably can't solve it in closed form.
 
 Tried the Euler and midpoint methods for this problem.  Though both of these seem to converge to a nice-looking solution (hopefully correct!) for $\Delta t \to 0$, they exhibit a strange phenomenon in which the solutions eventually oscillate and diverge if we look at a large enough time $t$.  The will see next time that it is suffering from an "instability" where the errors *grow exponentially* with time $t$.
 
