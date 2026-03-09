@@ -306,3 +306,34 @@ There are many eigenvalue algorithms.  But for general "dense" matrices, the mos
 * [exam](exams/exam26.pdf) and [solutions](exams/exam26-sol.pdf)
 
 This is a "1 hour" (10:05 to 10:55) exam, held in-class.  You may bring one page of notes.  See also the information on the practice exam, posted above.
+
+## Lecture 15 (Mar 9)
+
+* [lecture notes](notes/ODEs-lecture1.pdf)
+* [example code](notes/ODE-introduction.ipynb)
+
+Numerical methods for ordinary differential equations (ODEs).  Introduced the concept of an [initial value problem](https://en.wikipedia.org/wiki/Initial_value_problem) $\frac{du}{dt} = f(u,t)$ given $u(0)$.
+
+Our goal is to obtain an approximation for the solution $u(t)$.  For example, if we are interested in $t \in [0,T]$, we could imagine discretizing this into $N+1$ discrete steps $t^n = n\Delta t$ for $\Delta t = T/N$, and trying to approximate the solution $v^n \approx u(t^n)$ (with superscripts indicating a "time index" $n \in \{ 0,1,\ldots,N \}$).  The goal is to come up with an **integration scheme**: a rule for updating $v^n$ (as well as an initialiation).  This effectively approximates the *differential* equation by a "difference equation", or a *continuous*-time problem by a **discrete dynamical system** (or [recurrence relation](https://en.wikipedia.org/wiki/Recurrence_relation)).
+
+Proposed two simple numerical methods: the [forward-Euler (explicit)](https://en.wikipedia.org/wiki/Euler_method) scheme $v^{n+1} = v^n + \Delta t f(v^n, t^n)$ and the [midpoint scheme](https://en.wikipedia.org/wiki/Midpoint_method) $v^{n+1} = v^{n-1} + 2\Delta t f(v^n, t^n)$, derived from the forward-difference and centered-difference approximations for $du/dt$ from lecture 1, respectively.  For the forward-Euler scheme, the initialization is simply $v^0 = u(0)$, but for the midpoint scheme we will need to come up with an initialization for $v^1$, e.g. using one step of forward Euler.
+
+Looked at an example problem $\frac{du}{dt} = f(u)$ with $u(0)=0$ (also introducing the notation $u_t = \frac{du}{dt}$), where the right-hand side $f(u)$ is motivated the problem of a spherical ball falling through the air, where $u(t)$ is interpreted as the *velocity* of the ball.  A "relatively simple" model for such a model from aerodynamics theory is
+$$
+f(u) = g - \frac{1}{2m} \rho A C_D u^2 \, ,
+$$
+where $m$ is the mass, $\rho$ is the air density, $A = \pi a^2$ is a cross-sectional area for a radius $a$, and $C_D$ is a drag coefficient approximated by
+$$
+C_D = \frac{24}{\text{Re}} + \frac{6}{1 + \sqrt{\text{Re}}} + 0.4 \, ,
+$$
+with $\text{Re}$ being the dimensionless [Reynolds number](https://en.wikipedia.org/wiki/Reynolds_number)
+$$
+\text{Re} = \frac{2a \rho}{\mu} u
+$$
+for an air viscosity $\mu$.   Given all of these parameters ($m, \rho, a, \mu$), we have an $f(u)$ that is a relatively simple function of $u$: roughly proportional to $u$ for small velocity $u$ ([laminar flow](https://en.wikipedia.org/wiki/Laminar_flow)), and proportional to $u^2$ for large velocity ([turbulent](https://en.wikipedia.org/wiki/Turbulence) flow).  (ODEs get *much* more complicated than this!)  But we still probably can't solve it in closed form.
+
+Tried the Euler and midpoint methods for this problem.  Though both of these seem to converge to a nice-looking solution (hopefully correct!) for $\Delta t \to 0$, they exhibit a strange phenomenon in which the solutions eventually oscillate and diverge if we look at a large enough time $t$.  The will see next time that it is suffering from an "instability" where the errors *grow exponentially* with time $t$.
+
+Moreover, we could use the "stencil" algorithm from lecture 1 to derive a *3rd-order* finite difference approximation, and found that the behaviour was even worse than the midpoint rule.  Even for a *fixed* time $t$, the solutions in this case *diverged* exponentially rather than converging as $\Delta t$ decreases.  Next lecture, we will see that this is a failure of "zero stability".
+
+**Further reading**: [FNC book, chapter 6](https://fncbook.com/overview-5), sections 6.1–6.2.  FENA book, chapter 4 and section 4.1.  You can also find hundreds of other web pages and videos on these topics.  3Blue1Brown has an [entertaining introduction to the idea of a differential equation](https://www.youtube.com/watch?v=p_di4Zn4wz4).   And here is a nice [video about the history of numerical ODE solvers](https://www.youtube.com/watch?v=gdxYsVniOYo) talks about the pioneering contributions of [Katherine Johnson](https://en.wikipedia.org/wiki/Katherine_Johnson) and her portrayal in the 2016 film [*Hidden Figures*](https://en.wikipedia.org/wiki/Hidden_Figures).
