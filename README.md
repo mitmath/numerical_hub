@@ -319,17 +319,17 @@ Our goal is to obtain an approximation for the solution $u(t)$.  For example, if
 Proposed two simple numerical methods: the [forward-Euler (explicit)](https://en.wikipedia.org/wiki/Euler_method) scheme $v^{n+1} = v^n + \Delta t f(v^n, t^n)$ and the [midpoint scheme](https://en.wikipedia.org/wiki/Midpoint_method) $v^{n+1} = v^{n-1} + 2\Delta t f(v^n, t^n)$, derived from the forward-difference and centered-difference approximations for $du/dt$ from lecture 1, respectively.  For the forward-Euler scheme, the initialization is simply $v^0 = u(0)$, but for the midpoint scheme we will need to come up with an initialization for $v^1$, e.g. using one step of forward Euler.
 
 Looked at an example problem $\frac{du}{dt} = f(u)$ with $u(0)=0$ (also introducing the notation $u_t = \frac{du}{dt}$), where the right-hand side $f(u)$ is motivated the problem of a spherical ball falling through the air, where $u(t)$ is interpreted as the *velocity* of the ball.  A "relatively simple" model for such a model from aerodynamics theory is
-$$
+```math
 f(u) = g - \frac{1}{2m} \rho A C_D u^2 \, ,
-$$
+```
 where $m$ is the mass, $\rho$ is the air density, $A = \pi a^2$ is a cross-sectional area for a radius $a$, and $C_D$ is a drag coefficient approximated by
-$$
+```math
 C_D = \frac{24}{\text{Re}} + \frac{6}{1 + \sqrt{\text{Re}}} + 0.4 \, ,
-$$
+```
 with $\text{Re}$ being the dimensionless [Reynolds number](https://en.wikipedia.org/wiki/Reynolds_number)
-$$
+```math
 \text{Re} = \frac{2a \rho}{\mu} u
-$$
+```
 for an air viscosity $\mu$.   Given all of these parameters ($m, \rho, a, \mu$), we have an $f(u)$ that is a relatively simple function of $u$: roughly proportional to $u$ for small velocity $u$ ([laminar flow](https://en.wikipedia.org/wiki/Laminar_flow)), and proportional to $u^2$ for large velocity ([turbulent](https://en.wikipedia.org/wiki/Turbulence) flow).  (ODEs get *much* more complicated than this!)  But we still probably can't solve it in closed form.
 
 Tried the Euler and midpoint methods for this problem.  Though both of these seem to converge to a nice-looking solution (hopefully correct!) for $\Delta t \to 0$, they exhibit a strange phenomenon in which the solutions eventually oscillate and diverge if we look at a large enough time $t$.  The will see next time that it is suffering from an "instability" where the errors *grow exponentially* with time $t$.
