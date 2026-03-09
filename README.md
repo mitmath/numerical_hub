@@ -320,7 +320,7 @@ Proposed two simple numerical methods: the [forward-Euler (explicit)](https://en
 
 Looked at an example problem $\frac{du}{dt} = f(u)$ with $u(0)=0$ (also introducing the notation $u_t = \frac{du}{dt}$), where the right-hand side $f(u)$ is motivated the problem of a spherical ball falling through the air, where $u(t)$ is interpreted as the *velocity* of the ball.  A "relatively simple" model for such a model from aerodynamics theory is
 ```math
-f(u) = g - \frac{1}{2m} \rho A C_D u^2 \, ,
+f(u) = g - \frac{\rho A C_D}{2m}  u^2 \, ,
 ```
 where $m$ is the mass, $\rho$ is the air density, $A = \pi a^2$ is a cross-sectional area for a radius $a$, and $C_D$ is a drag coefficient approximated by
 ```math
