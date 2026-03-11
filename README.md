@@ -337,3 +337,37 @@ Tried the Euler and midpoint methods for this problem.  Though both of these see
 Moreover, we could use the "stencil" algorithm from lecture 1 to derive a *3rd-order* finite difference approximation, and found that the behaviour was even worse than the midpoint rule.  Even for a *fixed* time $t$, the solutions in this case *diverged* exponentially rather than converging as $\Delta t$ decreases.  Next lecture, we will see that this is a failure of "zero stability".
 
 **Further reading**: [FNC book, chapter 6](https://fncbook.com/overview-5), sections 6.1–6.2.  FENA book, chapter 4 and section 4.1.  You can also find hundreds of other web pages and videos on these topics.  3Blue1Brown has an [entertaining introduction to the idea of a differential equation](https://www.youtube.com/watch?v=p_di4Zn4wz4).   And here is a nice [video about the history of numerical ODE solvers](https://www.youtube.com/watch?v=gdxYsVniOYo) talks about the pioneering contributions of [Katherine Johnson](https://en.wikipedia.org/wiki/Katherine_Johnson) and her portrayal in the 2016 film [*Hidden Figures*](https://en.wikipedia.org/wiki/Hidden_Figures).
+
+## Lecture 16 (Mar 11)
+
+* [notes](notes/ODEs-allnotes.pdf)
+* pset 4 solutions: coming soon
+* pset 5: coming soon, due Wed Mar 18 at midnight
+
+A general **multi-step** timestepping scheme, for a given $\Delta t$, could be written in the form
+$$
+v^{n+1} = N(v^{n+1}, v^n, v^{n-1}, \ldots, v^{n+1-s})
+$$
+for some function $N$ and some integer $s > 0$ (the number of previous timesteps that are used to construct $v^{n+1}$).  Specifically, if we assume that $N$ is a linear function of $v^k$ and $f^k = f(v^k, t^k)$, we could also write this as:
+$$
+v^{n+1} = -\sum_{i=1}^s \alpha_i v^{n+1-i}  + \Delta t \sum_{i=0}^s \beta_i f^{n+1-i} \, .
+$$
+Notice that if $\beta_i \ne 0$, then the right-hand side depends on $v^{n+1}$ via $f^{n+1} = f(v^{n+1},t^{n+1})$, requiring us to solve an equation to obtain $v^{n+1}$ — this is called an **implicit scheme**.  Conversely, if $\beta_0=0$ so that we can simply evaluate the rhs to obtain $v^{n+1}$, it is called an **explicit scheme**.
+
+There are several important concerns for any algorithm to solve ODEs.
+
+* **Consistency**: Do the **local truncation errors** of a *single* time step $u_{n+1} = \cdots$ go to zero as $\Delta t \to 0$?  In particular, we define the local truncation error as $u^{n+1} - N(u^{n+1},\ldots,u^{n+1-s}$ (the error if we plugged the *exact* solution $u^n$ into our scheme).  If this goes to zero as $O(\Delta t^{1+p})$ for $p > 0$, we say that $p$ is the local **order of convergence** of the method.  Equivalently (dividing by $\Delta t$ and re-arranging), are we correctly approximating $\frac{du}{dt} - f(u,t) = 0$ to some positive order $O(\Delta t^p)$?
+* **Zero stability**: For a *fixed* $t$, does the approximate solution diverge as $\Delta t \to 0$?  In particular, it turns out to be sufficient to analyze a right-hand sided $f=0$: it is **zero-unstable** if a nonzero initial condition can *diverge* ($\Vert u_k \Vert \to \infty$) as the step $k \to \infty$ (with $\Delta t$ cancelling from the analysis for $f=0$, so this can be viewed as a divergence as $\Delta t \to 0$ for a fixed $t$).
+* **Linear stability**: Later, we will *include* the right-hand side in the stability analysis by *linearizing* it when $u$ is close to a root of $f$, especially for [autonomous ODEs](https://en.wikipedia.org/wiki/Autonomous_system_(mathematics)) $f(u,t) = f(u)$.  Through this analysis, we will show that some methods diverge for a *fixed* $\Delta t$ as you increase the total time $t$, perhaps unless $\Delta t$ is sufficiently small (*conditional* stability).
+
+An important result, to be covered in the next lecture, is the **Dahlquist equivalence** theorem (closely related to the [Lax (or Lax–Richtmyer) equivalence theorem](https://en.wikipedia.org/wiki/Lax_equivalence_theorem)):
+
+* If a method is *both consistent and zero-stable*, then it is **("globally") convergent**: the approximate solution $\tilde{u}(t)$ approaches the exact solution $u(t)$ at any time $t$, as $\Delta t \to 0$, with a convergence rate $\Vert\tilde{u}(t) - u(t)\Vert = O(\Delta t^p)$ matching the local truncation error.
+
+Without worrying about stability (i.e., simply assuming that $v^n$ stays close to the true solution $u^n = u(t^n)$ as $\Delta t \to 0$), we gave a simple argument for why the global error (the *maximum* error $\Vert v^n - u^n \Vert$ for $n = 0, \ldots, T/\Delta t$) should converge as $O(\Delta t^p)$ if the local truncation error is $O(\Delta t^{1+p})$, essentially because the local errors accumulate over $N = T/\Delta t$ timesteps.
+
+We showed how the Taylor-series analysis of finite-difference formulas in lecture 1 immediately tells us that the forward Euler scheme has order $p=1$, and the midpoint scheme has order $p=2$ (just like the forward-difference and centered-difference formulas, respectively).
+
+More generally, we showed how one could, in principle, construct a scheme of any desired order depending on any set of previous $v^k$ and $f_k$ by simply plugging in a Taylor series and solving for the $\alpha_i$ and $\beta_i$ that set as many terms to zero as possible.   However, it will turn out that the resulting scheme is *not necessarily stable*, requiring additional analysis that we will discuss in the next lecture.
+
+**Further reading:** Lecture notes, sections 2 and 3.1.  See also the readings in FNC and FENA from the previous lecture.
