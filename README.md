@@ -341,7 +341,7 @@ Moreover, we could use the "stencil" algorithm from lecture 1 to derive a *3rd-o
 ## Lecture 16 (Mar 11)
 
 * [notes](notes/ODEs-allnotes.pdf)
-* pset 4 solutions: coming soon
+* [pset 4 solutions](psets/pset4sol.ipynb)
 * pset 5: coming soon, due Wed Mar 18 at midnight
 
 A general **multi-step** timestepping scheme, for a given $\Delta t$, could be written in the form
