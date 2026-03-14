@@ -345,13 +345,13 @@ Moreover, we could use the "stencil" algorithm from lecture 1 to derive a *3rd-o
 * [pset 5](psets/pset5.ipynb): due Wed Mar 18 at midnight
 
 A general **multi-step** timestepping scheme, for a given $\Delta t$, could be written in the form
-$$
+```math
 v^{n+1} = N(v^{n+1}, v^n, v^{n-1}, \ldots, v^{n+1-s})
-$$
+```
 for some function $N$ and some integer $s > 0$ (the number of previous timesteps that are used to construct $v^{n+1}$).  Specifically, if we assume that $N$ is a linear function of $v^k$ and $f^k = f(v^k, t^k)$, we could also write this as:
-$$
+```math
 v^{n+1} = -\sum_{i=1}^s \alpha_i v^{n+1-i}  + \Delta t \sum_{i=0}^s \beta_i f^{n+1-i} \, .
-$$
+```
 Notice that if $\beta_i \ne 0$, then the right-hand side depends on $v^{n+1}$ via $f^{n+1} = f(v^{n+1},t^{n+1})$, requiring us to solve an equation to obtain $v^{n+1}$ — this is called an **implicit scheme**.  Conversely, if $\beta_0=0$ so that we can simply evaluate the rhs to obtain $v^{n+1}$, it is called an **explicit scheme**.
 
 There are several important concerns for any algorithm to solve ODEs.
