@@ -371,3 +371,60 @@ We showed how the Taylor-series analysis of finite-difference formulas in lectur
 More generally, we showed how one could, in principle, construct a scheme of any desired order depending on any set of previous $v^k$ and $f_k$ by simply plugging in a Taylor series and solving for the $\alpha_i$ and $\beta_i$ that set as many terms to zero as possible.   However, it will turn out that the resulting scheme is *not necessarily stable*, requiring additional analysis that we will discuss in the next lecture.
 
 **Further reading:** Lecture notes, sections 2 and 3.1.  See also the readings in FNC and FENA from the previous lecture.
+
+
+## Lecture 17 (Mar 13)
+
+* [notes](notes/ODEs-allnotes.pdf)
+
+### Zero-stability
+
+All three of the schemes (Euler, midpoint, and third-order) from last lecture were consistent (with $p = 1,2,3$ respectively).   But the third-order scheme was zero-unstable.   (The midpoint rule was zero-stable: its solutions converged as $\Delta t \to 0$ for a *fixed* time $t$, but it exhibited a different kind of instability that we will discuss next time: its solutions could diverge for fixed $\Delta t$ as the time $t$ increased.)  Besides numerical experiments, how does one analyze zero-stability?
+
+The trick to analyze zero stability is to set $f=0$ and notice that the ODE scheme $`v^{n+1} = \cdots`$ is in the form of a [linear recurrence relation](https://en.wikipedia.org/wiki/Linear_recurrence_with_constant_coefficients): $v^{n+1}$ is a linear combination of $`v^k`$ for $k < n$, with constant ($k$-independent) coefficients.   There are at least two ways to think about this:
+
+* By combining several $`v^k`$'s into a vector $`{x}_k`$, we can write this in **matrix form** as ${x}_{k+1} = A{x}_k$ for some matrix $`A`$.  Iterating this relation, we immediately see that $`{x}_{k+1} = A^k {x}_1`$, and so the question becomes: do **matrix powers** $A^k$ diverge or not?   This can be analyzed by looking at [eigenvalues *g*](https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors) of $A$, satisfying $`A{x}=g {x}`$ for some eigenvectors ${x} \ne 0$ and eigenvalues (or "growth factors") $g$.  For an eigenvector $`{x}`$, $`A^k = g^k {x}`$, so it diverges if $|g| > 1$.   If *any* of the eigenvalues has $|g| > 1$, then $`A^k {x}_1`$ will diverge for *some* initial condition $`{x}_1`$, and the system is unstable.  So, to check zero-stability, we just need to write the scheme in terms of a matrix $A$, compute the eigenvalues of $A$ (computers are good at this), and make sure $|g | \le 1$ for all eigenvalues.  (Technically, this assumes that the matrix is [diagonalizable](https://en.wikipedia.org/wiki/Diagonalizable_matrix); in the *very rare* case of a non-diagonalizable or ["defective"](https://en.wikipedia.org/wiki/Defective_matrix) matrix, more care is required.  Specifically, one has to be careful of $|g|=1$, which might still lead to divergence is $g$ is a *repeated* eigenvalue.)
+* Equivalently, the eigen-analysis above corresponds to the [ansatz](https://en.wikipedia.org/wiki/Ansatz) that $v^k = v^0 g^k$, where $g^k$ is $g$ to the $k$-th power, for some growth factor $g$.   If you plug this into the ODE scheme, you get a *polynomial* equation for $g$, and you can solve for its roots to see if it is stable (all $|g| < 1$, with $|g|=1$ being okay at least for non-repeated roots).   (In fact, this is equivalent to the characteristic polynomial of $A$ above).
+
+Showed by this analysis that Euler is zero-stable (its $A$ is a $1 \times 1$ matrix with eigenvalue $1$), the midpoint rule is also zero stable (its $A$ is a $2 \times 2$ [exchange matrix](https://en.wikipedia.org/wiki/Exchange_matrix) with eigenvalues $\pm 1$), but the third-order scheme was unstable (it had an eigenvalue of $\approx -2.6$)
+
+### "Eigenvalue" or "linear" stability
+
+* The *exact* ODE $\frac{du}{dt} = \lambda u$ has exponentially growing solutions for $\Re \lambda > 0$, and non-growing ("stable") solutions for $\Re \lambda \le 0$.   This analysis extends to linear autonomous ODEs $\frac{du}{dt} = A u$ where $A$ is a (diagonalizable) matrix, since we can just check each eigenvalue $\lambda$ of $A$.  (We can also this analysis to nonlinear autonomous ODEs $\frac{du}{dt} = f(u)$ by approximately *linearizing* $f(u)$ using the Jacobian of $f$.)
+* When we *discretize* the ODE, can plug $\lambda u$ (or $Au$) in for the right-hand side, for a fixed $\Delta t$, and again use eigenvalues of $A$ to analyze whether $u_k \approx u(k\Delta t)$ is growing or decaying with $k$.  (This reduces to "zero stability" analysis in the limit $\Delta t \to 0$, for which the right-hand-side disappears from the formula for $u_k$.)
+
+In this way, we find that certain discretization schemes are **linearly stable** (non-growing $u_k$) only for certain values of $\lambda \Delta t$.  This is *different* from zero-stability, which is about the $\Delta t \to 0$ limit at a *fixed* $t$ : here, we are considering the $t \to \infy$ limit for a *fixed* $\Delta t$.
+
+To begin with, we analyzed the *forward Euler* ("explicit") scheme $u_{k+1} = u_k + \Delta t f(u_k) = u_k + \Delta t (\lambda u_k)$ for $\frac{du}{dt} = \lambda u$, giving $u_{k} = (1 + \lambda \Delta t)^k u_0$.  Hence, it is stable for $|1 + \lambda \Delta t| \le 1$, which the interior of a *circle* of radius 1 in the complex $\lambda \Delta t$ plane centered at $\lambda \Delta t = -1$.  Hence:
+
+* For $\frac{du}{dt} = -u$, $\lambda = 1$ so it is stable for $0 \le \Delta t \le 2$.  (This is why it performed so well numerically.)  (The fact that it is only stable for certain values of $\Delta t$ in this case is called **conditional stability**; note that this depends on the right-hand side of the ODE!)
+
+**Furher reading (zero stability)**: Lecture notes, section 3.4.  FNC book, [section 6.8: zero stability](https://fncbook.com/zerostability) (which used an alternative framing equivalent to eigenvalues, but without explicitly forming the matrix).  FENA book, chapter 4.2 (which used the eigenvalue formulation).  For the general problem of analyzing matrix powers and linear recurrences via eigenvalues, you may want to review some material from 18.06: Strang *Intro. to Linear Algebra* section 6.2, and [18.06 OCW lecture 22](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-22-diagonalization-and-powers-of-a/) (diagonalization and matrix powers).
+
+**Further reading (eigenvalue/linear stability):** Lecture notes, section 4. FENA book, section 4.3.
+
+## Lecture 18 (Mar 16)
+
+* [notes](notes/ODEs-allnotes.pdf)
+
+Reviewed zero stability and eigenvalue/linear stability.
+
+Discussed [stiff ODEs](https://en.wikipedia.org/wiki/Stiff_equation), characterized by systems exhibiting **two or more *very different* timescales**, so that it may be difficult for a single $\Delta t$ to capture the "fast" timescale(s) without requiring an excessive number of timesteps for the "slow" timescale(s).  As an example, considered:
+
+$$
+\frac{du}{dt} = -1000u + 100\sin(t)
+$$
+
+with initial condition $u(0)=1$, for which the first term on the right-hand side is a rapid decay over a timescale $1/1000$, whereas the second term is an oscillation with a timescale (period) $2\pi$.    Showed how forward Euler requires excessively small timesteps $\Delta t \le 2/1000$ in order to avoid blowing up.
+
+Next, we analyzed the *backward Euler* ("implicit") scheme $v^{k+1} = v^k + \Delta t f(v^{k+1}) = v^k + \Delta t (\lambda v^{k+1})$, which is first-order accurate.  This gives $v^{k} = \frac{1}{(1 - \lambda \Delta t)^k} v^0$, which is stable for $|1 - \lambda \Delta t| \ge 1$.  Notice the $\ge$ sign!  This is the *exterior* of a circle of radius 1 in the complex $\lambda \Delta t$ plane centered at $\lambda \Delta t = +1$, which is a *superset* of the stable region $\Re \lambda \ke 0$ of the *exact* ODE solutions.
+
+* This is why people use implicit ODE schemes: they are often more complicated to implement, because $f(v^{k+1})$ appears on the right-hand-side, requiring you to solve for $v^{k+1}$ (which gets expensive as $f$ gets more complicated), but they tend to be *more stable* than explicit schemes.
+
+In the example above, with backward Euler we could use an extremely large timestep, e.g. $\Delta t = 0.2$, and is still stable and in fact reasonably accurate.
+
+With forward Euler (or other explicit methods) in a stiff problem, a small $\Delta t$ is required to resolve the fast timescale in a stable way, but then the number of timesteps is large (the slow timescale divided by $\Delta t$).   With *backward* Euler, however, it remains stable even for very large $\Delta t$, much larger than the fast timescale (although then the fast dynamics can't be observed accurately).   This is why implicit schemes are attractive: in stiff systems, the more-expensive implicit timesteps are worth it because of the huge savings in the *number* of timesteps (from the larger $\Delta t$).
+
+Another example of an implicit scheme is the [Crank–Nicolson (or "trapezoidal")](https://en.wikipedia.org/wiki/Crank%E2%80%93Nicolson_method) scheme: $v^{n+1} = v^{n-1} + (f^{n+1} + f^{n-1})/2$, which turns out to be second-order accurate and stable when $\operatorname{Re}[\lambda \Delta t] \le 0$ (the left-half plane).  However, for the example above it also exhibits oscillatory errors that may not be a great match for such a strongly "dissipative" system.
+
+**Further reading:** Lecture notes, section 5 on stiff ODEs.  The FENA book, section 4.10, has some further discussion of stiff systems. There are many sources online about methods for stiff equations and implicit ODE methods.  See e.g. [these course notes from MIT 18.337/6.338](https://book.sciml.ai/notes/09-Solving_Stiff_Ordinary_Differential_Equations/), which focuses mainly on ways to construct the Jacobian (to linearize the right-hand-side) and/or efficiently perform the implicit solves on each step for the nonlinear case.  The [book by Griffiths and Highham (2010)](https://link.springer.com/book/10.1007/978-0-85729-148-6), along with many other similar books on numerical ODEs, contains a wealth of information, at a much more formal level than this course.
