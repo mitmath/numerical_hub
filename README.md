@@ -439,3 +439,20 @@ Another example of an implicit scheme is the [Crank–Nicolson (or "trapezoidal"
 * [notes](notes/ODEs-allnotes.pdf)
 * [lecture demos: multi-step schemes](notes/ODE-stiffness-stability.ipynb)
 * [lecture demos: Runge-Kutta schemes](notes/ODE-RungeKutta.ipynb)
+* pset 5 solutions: coming soon
+
+Review of implicit schemes and how one would go about solving for $v^{n+1}$ by Newton's method, using the Jacobian of $f$.  (As $\Delta t$ gets smaller, the Newton steps get closer to the identity and they converge faster, which is another tradeoff.)
+
+Gave an overview of [other multi-step schemes](https://en.wikipedia.org/wiki/Linear_multistep_method):
+* Adams–Bashforth (explicit) and Adams–Moulton (implicit) methods: these generalize forward/backward Euler to higher order (at the expense of smaller stability regions) by using more past $f^i$ values (but still only $v^n$).  They can be thought of as approximating $u^{n+1} - u^n = \int_{t^n}^{t^{n+1}} f(u(t),t) dt$ by polynomial interpolation/extrapolation of $f(u(t),t)$ from several $f^i$ values.
+* [Backward-differentiation formulas](https://en.wikipedia.org/wiki/Backward_differentiation_formula) (implicit): these are a *different* generalization of backward Euler by using more past $v^i$ values (but only $f^{n+1}$).  They can be thought of as approximating $du/dt$ by higher-order finite-difference formulas using multiple $v^i$ values, again via polynomial interpolation.  They are especially attractive for stiff dissipative systems, because their stability region includes the whole negative real axis.
+
+There is are two fundamental limitations to multistep methods, called the [Dahlquist barriers](https://en.wikipedia.org/wiki/Linear_multistep_method#First_and_second_Dahlquist_barriers):
+1. An $s$-step method cannot have accuracy greater than order $s$ if it is explicit, or greater than order $s+1+\text{iseven}(s)$ if it is implicit (where $\text{iseven}(s) = 1$ if $s$ is even and $=0$ if $s$ is odd).
+2. An *explicit* multistep scheme **cannot** be [A-stable](https://en.wikipedia.org/wiki/Stiff_equation#A-stability), which is defined as the eigenvalue stability region *including the entire left-half complex plane* $\text{Re}[\lambda \Delta t] < 0$.  (Intuitively, A-stability means that if the underlying ODE has decaying solutions then the discretized equations are also decaying.) An *implicit* multistep scheme **can** be A-stable, but only if the order of accuracy is $\le 2$ (for example, Crank–Nicolson is an order-2 A-stable implicit scheme).
+
+However, there are methods that are *not* multistep methods as defined above!  The most famous such methods, and the starting point for some of the most widely used and practical ODE algorithms, are the [Runge–Kutta (RK) schemes](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods), which are examples of *multi-stage* schemes.  They extrapolate $v$, then evaluate $f$, then extrapolate *again*, in two or more stages.  They are more expensive because they involve multiple $f$ evaluations, even for explicit Runge–Kutta schemes, but they have a stability region that *grows* with order of accuracy.
+
+**Further reading (multistep methods):** Notes, chapter 5. *FNC* book [sections 6.6](https://fncbook.com/multistep/) and [6.7](https://fncbook.com/implicit/). Trefethen's [*Finite Difference and Spectral Methods for Ordinary and Partial Differential Equations* (1996)](https://www.math.hmc.edu/~dyong/math165/trefethenbook.pdf), sections 1.4–1.8.
+
+**Further reading (Runge–Kutta methods):** Notes, chapter 6. *FNC* book [section 6.4](https://fncbook.com/rk/). Trefethen's [*Finite Difference and Spectral Methods for Ordinary and Partial Differential Equations* (1996)](https://www.math.hmc.edu/~dyong/math165/trefethenbook.pdf), section 1.9. People continue to discover new Runge–Kutta schemes!  For example, the state of the art 5th-order scheme was recently devised by [Tsitorious (2010)](https://www.sciencedirect.com/science/article/pii/S0898122111004706).
