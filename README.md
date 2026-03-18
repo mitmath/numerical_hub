@@ -341,6 +341,7 @@ Moreover, we could use the "stencil" algorithm from lecture 1 to derive a *3rd-o
 ## Lecture 16 (Mar 11)
 
 * [notes](notes/ODEs-allnotes.pdf)
+* [lecture demos](notes/ODE-accuracy.ipynb)
 * [pset 4 solutions](psets/pset4sol.ipynb)
 * [pset 5](psets/pset5.ipynb): due Wed Mar 18 at midnight
 
@@ -376,6 +377,8 @@ More generally, we showed how one could, in principle, construct a scheme of any
 ## Lecture 17 (Mar 13)
 
 * [notes](notes/ODEs-allnotes.pdf)
+* [lecture demos](notes/ODE-stability.ipynb)
+
 
 ### Zero-stability
 
@@ -407,6 +410,7 @@ To begin with, we analyzed the *forward Euler* ("explicit") scheme $u_{k+1} = u_
 ## Lecture 18 (Mar 16)
 
 * [notes](notes/ODEs-allnotes.pdf)
+* [lecture demos](notes/ODE-stiffness-stability.ipynb)
 
 Reviewed zero stability and eigenvalue/linear stability.
 
@@ -429,3 +433,9 @@ With forward Euler (or other explicit methods) in a stiff problem, a small $\Del
 Another example of an implicit scheme is the [Crank–Nicolson (or "trapezoidal")](https://en.wikipedia.org/wiki/Crank%E2%80%93Nicolson_method) scheme: $v^{n+1} = v^{n-1} + \Delta t (f^{n+1} + f^{n-1})$, which turns out to be second-order accurate and stable when $\text{Re}[\lambda \Delta t] \le 0$ (the left-half plane).  However, for the example above it also exhibits oscillatory errors that may not be a great match for such a strongly "dissipative" system.
 
 **Further reading:** Lecture notes, section 5 on stiff ODEs.  The FENA book, section 4.10, has some further discussion of stiff systems. There are many sources online about methods for stiff equations and implicit ODE methods.  See e.g. [these course notes from MIT 18.337/6.338](https://book.sciml.ai/notes/09-Solving_Stiff_Ordinary_Differential_Equations/), which focuses mainly on ways to construct the Jacobian (to linearize the right-hand-side) and/or efficiently perform the implicit solves on each step for the nonlinear case.  The [book by Griffiths and Highham (2010)](https://link.springer.com/book/10.1007/978-0-85729-148-6), along with many other similar books on numerical ODEs, contains a wealth of information, at a much more formal level than this course.
+
+## Lecture 19 (Mar 18)
+
+* [notes](notes/ODEs-allnotes.pdf)
+* [lecture demos: multi-step schemes](notes/ODE-stiffness-stability.ipynb)
+* [lecture demos: Runge-Kutta schemes](notes/ODE-RungeKutta.ipynb)
