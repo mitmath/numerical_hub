@@ -439,7 +439,7 @@ Another example of an implicit scheme is the [Crank–Nicolson (or "trapezoidal"
 * [notes](notes/ODEs-allnotes.pdf)
 * [lecture demos: multi-step schemes](notes/ODE-stiffness-stability.ipynb)
 * [lecture demos: Runge-Kutta schemes](notes/ODE-RungeKutta.ipynb)
-* pset 5 solutions: coming soon
+* [pset 5 solutions](psets/pset5sol.ipynb)
 
 Review of implicit schemes and how one would go about solving for $v^{n+1}$ by Newton's method, using the Jacobian of $f$.  (As $\Delta t$ gets smaller, the Newton steps get closer to the identity and they converge faster, which is another tradeoff.)
 
